@@ -1,0 +1,49 @@
+{
+  "name": "kynd-web",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://kynd.no",
+  "author": {
+    "name": "Frederik Gørvell de Lichtenberg",
+    "email": "frederik@kynd.no",
+    "url": "https://github.com/frederikgdl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kynd-no/kynd-web"
+  },
+  "packageManager": "pnpm@8.15.5",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "astro:check": "astro check",
+    "typecheck": "tsc",
+    "lint": "eslint --ext .js,.ts,.astro src --max-warnings 0",
+    "prettier:check": "prettier --check . --plugin=prettier-plugin-astro",
+    "prettier:format": "prettier --write . --plugin=prettier-plugin-astro",
+    "check": "pnpm astro:check && pnpm typecheck && pnpm lint && pnpm prettier:check",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^2.2.1",
+    "@astrojs/rss": "^4.0.5",
+    "@astrojs/sitemap": "^3.1.1",
+    "astro": "^4.5.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.5.9",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^0.32.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.4.3"
+  }
+}

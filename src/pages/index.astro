@@ -1,0 +1,28 @@
+---
+import Logo from '@/components/Logo.astro';
+import Layout from '@/layouts/Base.astro';
+---
+
+<Layout>
+  <h1 class="sr-only">Kynd</h1>
+  <div class="container">
+    <p>Et helt vanlig konsulentselskap</p>
+    <div class="logo">
+      <Logo />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .container {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    width: 100%;
+  }
+</style>
