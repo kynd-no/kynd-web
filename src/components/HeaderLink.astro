@@ -8,14 +8,10 @@ const { href, class: className, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 
-const isActive = import.meta.env.BASE_URL + href === pathname || href === '/' + subpath?.[1]; // subpath?.[0];
+const isActive = href === pathname || href === '/kynd-web/' + subpath?.[1] + '/'; // subpath?.[0];
 ---
 
-<a
-  href={`${import.meta.env.BASE_URL}${href}`}
-  class:list={[className, { active: isActive }]}
-  {...props}
->
+<a href={href} class:list={[className, { active: isActive }]} {...props}>
   <slot />
 </a>
 <style>
