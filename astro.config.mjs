@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://kynd.no',
+  site: 'https://kynd-no.github.io',
+  base: '/kynd-web',
   integrations: [mdx(), sitemap()],
 });
