@@ -13,7 +13,7 @@
     "type": "git",
     "url": "https://github.com/kynd-no/kynd-web"
   },
-  "packageManager": "pnpm@8.15.5",
+  "packageManager": "pnpm@8.15.6",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -29,18 +29,18 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@astrojs/mdx": "^2.2.1",
+    "@astrojs/mdx": "^2.2.3",
     "@astrojs/rss": "^4.0.5",
-    "@astrojs/sitemap": "^3.1.1",
-    "astro": "^4.5.8"
+    "@astrojs/sitemap": "^3.1.2",
+    "astro": "^4.5.15"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.5.9",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@astrojs/check": "^0.5.10",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-astro": "^0.32.0",
+    "eslint-plugin-astro": "^0.33.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
