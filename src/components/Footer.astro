@@ -5,7 +5,7 @@ const today = new Date();
 <footer>
   <div class="company-info">
     <span>kynd AS</span>
-    <span>Org.nr. 933 031 667</span>
+    <span class="orgnr">Org.nr. 933 031 667</span>
     <a class="mail-link" href="mailto:hei@kynd.no">hei@kynd.no</a>
   </div>
   <div>
@@ -29,7 +29,7 @@ const today = new Date();
         >
       </a>
     </div>
-    <span>&copy; {today.getFullYear()} kynd</span>
+    <span class="copyright">&copy; {today.getFullYear()} kynd</span>
   </div>
 </footer>
 <style>
@@ -46,6 +46,10 @@ const today = new Date();
     display: flex;
     flex-direction: column;
     gap: 0.5em;
+  }
+
+  .orgnr {
+    color: var(--color-text);
   }
 
   .mail-link {
@@ -67,5 +71,10 @@ const today = new Date();
 
   .social-links a:hover {
     /* color: rgb(var(--gray-dark)); */
+  }
+
+  .copyright {
+    margin-top: 0.5rem;
+    display: block;
   }
 </style>
