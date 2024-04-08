@@ -1,0 +1,117 @@
+:root {
+  /* --accent: #2337ff;
+  --accent-dark: #000d8a;
+  --black: 15, 18, 25;
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --gray-dark: 34, 41, 57;
+  --gray-gradient: rgba(var(--gray-light), 50%), #fff;
+  --box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+    0 16px 32px rgba(var(--gray), 33%);
+  --text-secondary: #6b6f72;
+  --primary-color: #548e9b; */
+
+  --dark-grey: #212121;
+  --dark-orange: #ce5644;
+  --yellow: #dba847;
+
+  --color-text: var(--yellow);
+  --color-focus: var(--dark-orange);
+  --color-background: var(--dark-grey);
+  /* --header-height: 5.25rem; */
+  /* --content-max-width: calc(81rem + var(--content-padding) * 2); */
+  /* --content-padding: 1.5rem; */
+  --font: 'Atkinson', system-ui, sans-serif;
+  --fs-h1: 300%;
+  --fs-h2: 200%;
+  --fs-h3: 150%;
+  --fs-h4: 125%;
+}
+
+@font-face {
+  font-family: 'Atkinson';
+  src: url('/kynd-web/fonts/atkinson-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Atkinson';
+  src: url('/kynd-web/fonts/atkinson-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*:focus-visible {
+  border-radius: 0.25rem;
+  outline: 0.125rem solid var(--color-focus);
+  outline-offset: 0.125rem;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 1rem;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+main {
+  width: 45rem;
+  max-width: calc(100% - 2rem);
+  margin: auto;
+  padding: 3rem 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(var(--fs-h2), 5vw, var(--fs-h1));
+}
+
+h2 {
+  font-size: clamp(var(--fs-h3), 5vw, var(--fs-h2));
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /* IE6, IE7 - a 0 height clip, off to the bottom right of the visible 1px box */
+  clip: rect(1px 1px 1px 1px);
+  /* maybe deprecated but we need to support legacy browsers */
+  clip: rect(1px, 1px, 1px, 1px);
+  /* modern browsers, clip-path works inwards from each corner */
+  clip-path: inset(50%);
+  /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
+  white-space: nowrap;
+}
