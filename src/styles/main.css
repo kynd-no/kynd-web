@@ -85,7 +85,7 @@ h3,
 h4 {
   line-height: 1.4;
   font-weight: 600;
-  margin: 1.5rem 0 1rem 0;
+  margin: 1.5rem 0 0 0;
 }
 
 h1 {
@@ -94,6 +94,7 @@ h1 {
 
 h2 {
   font-size: clamp(var(--fs-h3), 5vw, var(--fs-h2));
+  color: var(--yellow);
 }
 
 h3 {
