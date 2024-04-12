@@ -11,13 +11,17 @@
   --text-secondary: #6b6f72;
   --primary-color: #548e9b; */
 
-  --dark-grey: #212121;
-  --dark-orange: #ce5644;
+  --beige-light: #ffe6c9;
+  --grey-dark: #212121;
+  --gray-light: #d3d3d3;
+  --orange-dark: #ce5644;
   --yellow: #dba847;
 
-  --color-text: var(--yellow);
-  --color-focus: var(--dark-orange);
-  --color-background: var(--dark-grey);
+  --color-header: var(--yellow);
+  --color-footer: var(--yellow);
+  --color-text: var(--beige-light);
+  --color-focus: var(--orange-dark);
+  --color-background: var(--grey-dark);
   /* --header-height: 5.25rem; */
   /* --content-max-width: calc(81rem + var(--content-padding) * 2); */
   /* --content-padding: 1.5rem; */
@@ -81,6 +85,7 @@ h3,
 h4 {
   line-height: 1.4;
   font-weight: 600;
+  margin: 1.5rem 0 1rem 0;
 }
 
 h1 {
