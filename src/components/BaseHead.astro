@@ -11,7 +11,7 @@ type Props = {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description = SITE_DESCRIPTION, image = '/blog-placeholder-2.jpg' } = Astro.props;
+const { title, description = SITE_DESCRIPTION, image = '/kynd-logo-og.png' } = Astro.props;
 
 const formattedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 ---
