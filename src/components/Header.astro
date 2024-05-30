@@ -1,40 +1,41 @@
 ---
 import HeaderLink from '@/components/HeaderLink.astro';
-// import Logo from '@/components/Logo.astro';
+import Logo from '@/components/Logo.astro';
+
+const { pathname } = Astro.url;
+
+const isFrontPage = pathname === '/';
+const displayLogo = isFrontPage ? 'none' : 'flex';
 ---
 
 <header>
-  <!-- <a href="/" aria-label="Forside" class="logo-link"><Logo /></a> -->
+  <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
   <nav>
     <HeaderLink href="/">Forside</HeaderLink>
     <!-- <HeaderLink href="/shaker">Blogg</HeaderLink> -->
+    <HeaderLink href="/folka">Folka</HeaderLink>
     <HeaderLink href="/om-oss">Om oss</HeaderLink>
   </nav>
 </header>
 
-<style>
+<style lang="scss" define:vars={{ displayLogo }}>
   header {
     margin: 0;
     padding: 1rem 2rem;
-    /* box-shadow: 0 2px 8px rgba(var(--black), 5%); */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: space-between; */
-    justify-content: end;
     gap: 1rem;
     color: var(--color-header);
-  }
 
-  @media (min-width: 720px) {
-    header {
+    @media (min-width: $width-m) {
       flex-direction: row;
     }
   }
 
   .logo-link {
-    width: 4em;
-    display: flex;
+    width: 5em;
+    display: var(--displayLogo);
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -44,5 +45,9 @@ import HeaderLink from '@/components/HeaderLink.astro';
   nav {
     display: flex;
     gap: 1.5rem;
+
+    @media (min-width: $width-m) {
+      margin-left: auto;
+    }
   }
 </style>

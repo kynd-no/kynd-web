@@ -6,6 +6,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://kynd.no',
   integrations: [mdx(), sitemap()],
+  prefetch: {
+    prefetchAll: true,
+  },
   vite: {
     envDir: '..',
     css: {
