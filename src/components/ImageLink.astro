@@ -1,4 +1,6 @@
 ---
+import Image from '@/components/Image.astro';
+
 export type Props = {
   image: string;
   name: string;
@@ -9,17 +11,11 @@ const { image, name, href } = Astro.props;
 ---
 
 <a href={href}>
-  <img src={image} alt={name} />
+  <Image imagePath={image} alt={name} aspectRatio={1} objectFit="cover" />
   <h2>{name}</h2>
 </a>
 
 <style lang="scss">
-  img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-  }
-
   h2 {
     width: fit-content;
     position: relative;

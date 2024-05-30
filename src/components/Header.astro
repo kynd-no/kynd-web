@@ -21,7 +21,7 @@ const displayLogo = isFrontPage ? 'none' : 'flex';
 <style lang="scss" define:vars={{ displayLogo }}>
   header {
     margin: 0;
-    padding: 1rem 2rem;
+    padding: 1rem var(--content-padding);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,6 +44,7 @@ const displayLogo = isFrontPage ? 'none' : 'flex';
 
   nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
 
     @media (min-width: $width-m) {

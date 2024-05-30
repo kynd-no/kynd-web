@@ -1,6 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import EmployeeGrid from '@/components/EmployeeGrid.astro';
+import Image from '@/components/Image.astro';
 import Layout from '@/layouts/Base.astro';
 
 export async function getStaticPaths() {
@@ -19,7 +20,7 @@ const { Content } = await employee.render();
 
 <Layout title={name} description={`Møt ${name}`}>
   <article>
-    <img src={image} alt={name} />
+    <Image imagePath={image} alt={name} aspectRatio={1} objectFit="cover" />
     <div>
       <h1>{name}</h1>
       <Content />
@@ -37,12 +38,6 @@ const { Content } = await employee.render();
     @media (min-width: $width-m) {
       grid-template-columns: 1fr 1fr;
     }
-  }
-
-  img {
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
   }
 
   h1 {

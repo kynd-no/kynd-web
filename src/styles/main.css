@@ -15,7 +15,7 @@
   --color-focus: var(--orange-dark);
   --color-background: var(--grey-dark);
   --color-link: var(--orange-dark);
-  --content-padding: 1.5rem;
+  --content-padding: 2rem;
   --content-max-width: calc(81rem + var(--content-padding) * 2);
   --font: 'Atkinson', system-ui, sans-serif;
   --fs-h1: 300%;
@@ -71,7 +71,6 @@ main {
 
 img {
   height: auto;
-  border-radius: 0.5rem;
 }
 
 h1,

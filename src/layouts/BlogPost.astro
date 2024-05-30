@@ -4,7 +4,7 @@ import FormattedDate from '@/components/FormattedDate.astro';
 
 import Layout from './Base.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = Omit<CollectionEntry<'blog'>['data'], 'pubDate'> & { pubDate?: Date };
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
