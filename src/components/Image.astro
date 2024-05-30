@@ -9,7 +9,7 @@ export type Props = {
   objectFit?: 'contain' | 'cover';
 };
 
-const { imagePath, alt, aspectRatio: aspectRatio = 'intrinsic', objectFit } = Astro.props;
+const { imagePath, alt, aspectRatio = 'intrinsic', objectFit } = Astro.props;
 const fullImagePath = `/src/assets${imagePath}`;
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
