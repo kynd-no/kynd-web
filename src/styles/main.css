@@ -16,7 +16,7 @@
   --color-background: var(--grey-dark);
   --color-link: var(--orange-dark);
   --content-padding: 2rem;
-  --content-max-width: calc(81rem + var(--content-padding) * 2);
+  --content-max-width: 81rem;
   --font: 'Atkinson', system-ui, sans-serif;
   --fs-h1: 300%;
   --fs-h2: 200%;
@@ -62,7 +62,7 @@ body {
 }
 
 main {
-  max-width: var(--content-max-width);
+  max-width: calc(var(--content-max-width) + var(--content-padding) * 2);
   margin: auto;
   padding: 3rem var(--content-padding);
   flex: 1;
