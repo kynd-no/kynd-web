@@ -1,0 +1,19 @@
+---
+import EmployeeGrid from '@/components/EmployeeGrid.astro';
+import Layout from '@/layouts/Base.astro';
+---
+
+<Layout title="Folka" description="Folka i kynd">
+  <section>
+    <h1>Møt folka i kynd</h1>
+    <EmployeeGrid />
+  </section>
+</Layout>
+
+<style>
+  section {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+  }
+</style>

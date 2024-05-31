@@ -1,0 +1,51 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import EmployeeGrid from '@/components/EmployeeGrid.astro';
+import Image from '@/components/Image.astro';
+import Layout from '@/layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const employees = await getCollection('employee');
+  return employees.map((employee) => ({
+    params: { slug: employee.slug },
+    props: employee,
+  }));
+}
+
+type Props = CollectionEntry<'employee'>;
+const employee = Astro.props;
+const { name, image } = employee.data;
+const { Content } = await employee.render();
+---
+
+<Layout title={name} description={`Møt ${name}`}>
+  <article>
+    <Image imagePath={image} alt={name} aspectRatio={1} objectFit="cover" />
+    <div>
+      <h1>{name}</h1>
+      <Content />
+    </div>
+  </article>
+  <EmployeeGrid />
+</Layout>
+
+<style lang="scss">
+  article {
+    display: grid;
+    gap: 3rem;
+    margin-bottom: 5rem;
+
+    @media (min-width: $width-m) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  :global(p) {
+    font-size: 150%;
+    margin-bottom: 1rem;
+  }
+</style>
