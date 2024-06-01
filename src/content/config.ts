@@ -11,7 +11,7 @@ const blog = defineCollection({
   }),
 });
 
-const employee = defineCollection({
+const employees = defineCollection({
   type: 'content',
   schema: z.object({
     name: z.string(),
@@ -19,4 +19,15 @@ const employee = defineCollection({
   }),
 });
 
-export const collections = { blog, employee };
+const projects = defineCollection({
+  type: 'content',
+  schema: z.object({
+    highlighted: z.boolean().optional(),
+    title: z.string(),
+    customer: z.string(),
+    role: z.string(),
+    image: z.string(),
+  }),
+});
+
+export const collections = { blog, employees, projects };

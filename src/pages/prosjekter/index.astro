@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import LinkGrid from '@/components/LinkGrid.astro';
+import Layout from '@/layouts/Base.astro';
+import ImageLink from '@/components/ImageLink.astro';
+
+const projects = await getCollection('projects');
+const highlightedProject = projects.find((project) => project.data.highlighted);
+const otherProjects = projects.filter((project) => project.id !== highlightedProject?.id);
+---
+
+<Layout title="Prosjekter" description="Ting vi har jobbet på">
+  <section>
+    <h1>Ting vi har jobbet på</h1>
+    {
+      highlightedProject && (
+        <div class="highlight">
+          <ImageLink
+            image={highlightedProject.data.image}
+            name={highlightedProject.data.title}
+            href={`/prosjekter/${highlightedProject.slug}`}
+          />
+        </div>
+      )
+    }
+    <LinkGrid>
+      {
+        otherProjects.map(({ data, slug }) => (
+          <ImageLink image={data.image} name={data.title} href={`/prosjekter/${slug}`} />
+        ))
+      }
+    </LinkGrid>
+  </section>
+</Layout>
+
+<style>
+  section {
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+  }
+
+  .highlight {
+    margin-bottom: 3rem;
+  }
+</style>

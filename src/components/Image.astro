@@ -5,8 +5,8 @@ import { Image as AstroImage } from 'astro:assets';
 export type Props = {
   imagePath: string;
   alt: string;
-  aspectRatio?: number | 'intrinsic';
-  objectFit?: 'contain' | 'cover';
+  aspectRatio?: number | 'intrinsic' | undefined;
+  objectFit?: 'contain' | 'cover' | undefined;
 };
 
 const { imagePath, alt, aspectRatio = 'intrinsic', objectFit } = Astro.props;

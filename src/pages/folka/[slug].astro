@@ -5,14 +5,14 @@ import Image from '@/components/Image.astro';
 import Layout from '@/layouts/Base.astro';
 
 export async function getStaticPaths() {
-  const employees = await getCollection('employee');
+  const employees = await getCollection('employees');
   return employees.map((employee) => ({
     params: { slug: employee.slug },
     props: employee,
   }));
 }
 
-type Props = CollectionEntry<'employee'>;
+type Props = CollectionEntry<'employees'>;
 const employee = Astro.props;
 const { name, image } = employee.data;
 const { Content } = await employee.render();

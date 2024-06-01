@@ -5,13 +5,15 @@ export type Props = {
   image: string;
   name: string;
   href: string;
+  aspectRatio?: number;
+  objectFit?: 'contain' | 'cover';
 };
 
-const { image, name, href } = Astro.props;
+const { image, name, href, aspectRatio, objectFit } = Astro.props;
 ---
 
 <a href={href}>
-  <Image imagePath={image} alt={name} aspectRatio={1} objectFit="cover" />
+  <Image imagePath={image} alt={name} aspectRatio={aspectRatio} objectFit={objectFit} />
   <h2>{name}</h2>
 </a>
 

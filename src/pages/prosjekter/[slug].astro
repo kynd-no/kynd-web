@@ -1,0 +1,78 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Image from '@/components/Image.astro';
+import Layout from '@/layouts/Base.astro';
+import EmailIcon from '@/icons/EmailIcon.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: project,
+  }));
+}
+
+type Props = CollectionEntry<'projects'>;
+const employee = Astro.props;
+const { title, image, customer, role } = employee.data;
+const { Content } = await employee.render();
+---
+
+<Layout title={title} description={`Vi har jobba med ${title}`}>
+  <article>
+    <Image imagePath={image} alt={title} aspectRatio={1} objectFit="cover" />
+    <h1>{title}</h1>
+    <div class="summary">
+      <div>
+        <div>{`Kunde: ${customer}`}</div>
+        <div>{`Arbeid: ${role}`}</div>
+      </div>
+      <a href="mailto:hello@kynd.no">
+        <EmailIcon />
+        <span>Snakk med oss</span>
+      </a>
+    </div>
+
+    <Content />
+  </article>
+</Layout>
+
+<style lang="scss">
+  :global(img) {
+    height: 13rem;
+  }
+
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-footer);
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-footer);
+    transition: all 0.2s;
+
+    :global(svg) {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    &:hover {
+      background-color: var(--color-footer);
+      color: var(--color-background);
+    }
+  }
+
+  :global(p) {
+    font-size: 150%;
+    margin-bottom: 1rem;
+  }
+</style>

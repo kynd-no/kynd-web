@@ -3,13 +3,19 @@ import { getCollection } from 'astro:content';
 import ImageLink from '@/components/ImageLink.astro';
 import LinkGrid from '@/components/LinkGrid.astro';
 
-const employees = await getCollection('employee');
+const employees = await getCollection('employees');
 ---
 
 <LinkGrid>
   {
     employees.map(({ data, slug }) => (
-      <ImageLink name={data.name} image={data.image} href={`/folka/${slug}`} />
+      <ImageLink
+        name={data.name}
+        image={data.image}
+        href={`/folka/${slug}`}
+        aspectRatio={1}
+        objectFit="cover"
+      />
     ))
   }
 </LinkGrid>
