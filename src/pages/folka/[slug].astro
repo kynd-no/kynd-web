@@ -20,7 +20,7 @@ const { Content } = await employee.render();
 
 <Layout title={name} description={`Møt ${name}`}>
   <article>
-    <Image imagePath={image} alt={name} aspectRatio={1} objectFit="cover" />
+    <Image src={image} alt={name} loading="eager" aspectRatio={1} objectFit="cover" />
     <div>
       <h1>{name}</h1>
       <Content />

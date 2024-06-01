@@ -1,27 +1,16 @@
 ---
-import type { ImageMetadata } from 'astro';
-import { Image as AstroImage } from 'astro:assets';
+import { Image as AstroImage, type LocalImageProps } from 'astro:assets';
 
-export type Props = {
-  imagePath: string;
-  alt: string;
+export type Props = LocalImageProps & {
   aspectRatio?: number | 'intrinsic' | undefined;
   objectFit?: 'contain' | 'cover' | undefined;
 };
 
-const { imagePath, alt, aspectRatio = 'intrinsic', objectFit } = Astro.props;
-const fullImagePath = `/src/assets${imagePath}`;
-
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}');
-
-if (!images[fullImagePath])
-  throw new Error(`"${fullImagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
-
-const image = images[fullImagePath];
+const { aspectRatio = 'intrinsic', objectFit, ...rest } = Astro.props;
 ---
 
 <div>
-  {image && <AstroImage src={image()} alt={alt} />}
+  <AstroImage {...rest} />
 </div>
 
 <style define:vars={{ aspectRatio, objectFit }}>

@@ -10,8 +10,9 @@ const employees = await getCollection('employees');
   {
     employees.map(({ data, slug }) => (
       <ImageLink
+        src={data.image}
+        alt={data.name}
         name={data.name}
-        image={data.image}
         href={`/folka/${slug}`}
         aspectRatio={1}
         objectFit="cover"
