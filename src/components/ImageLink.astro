@@ -1,17 +1,16 @@
 ---
-import Image from '@/components/Image.astro';
+import Image, { type Props as ImageProps } from './Image.astro';
 
-export type Props = {
-  image: string;
-  name: string;
+export type Props = ImageProps & {
   href: string;
+  name: string;
 };
 
-const { image, name, href } = Astro.props;
+const { name, href, ...rest } = Astro.props;
 ---
 
 <a href={href}>
-  <Image imagePath={image} alt={name} aspectRatio={1} objectFit="cover" />
+  <Image {...rest} />
   <h2>{name}</h2>
 </a>
 

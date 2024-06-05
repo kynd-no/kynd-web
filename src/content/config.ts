@@ -11,12 +11,25 @@ const blog = defineCollection({
   }),
 });
 
-const employee = defineCollection({
+const employees = defineCollection({
   type: 'content',
-  schema: z.object({
-    name: z.string(),
-    image: z.string(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      name: z.string(),
+      image: image(),
+    }),
 });
 
-export const collections = { blog, employee };
+const projects = defineCollection({
+  type: 'content',
+  schema: ({ image }) =>
+    z.object({
+      highlighted: z.boolean().optional(),
+      title: z.string(),
+      customer: z.string(),
+      role: z.string(),
+      image: image(),
+    }),
+});
+
+export const collections = { blog, employees, projects };
