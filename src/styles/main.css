@@ -98,6 +98,15 @@ h4 {
   font-size: var(--fs-h4);
 }
 
+ul,
+ol {
+  padding-left: 1.25em;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
