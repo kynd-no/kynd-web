@@ -9,6 +9,9 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
   },
+  server: {
+    open: true,
+  },
   vite: {
     envDir: '..',
     css: {
