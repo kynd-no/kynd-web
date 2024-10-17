@@ -17,10 +17,9 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData(source, fp) {
-            if (fp.endsWith('main.scss')) return source;
-            if (fp.endsWith('variables.scss')) return source;
-            return `@import "src/styles/main.scss"; ${source}`;
+          api: 'modern-compiler',
+          additionalData(source) {
+            return `@use "src/styles/main.scss" as *; ${source}`;
           },
         },
       },
