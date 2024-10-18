@@ -12,17 +12,4 @@ export default defineConfig({
   server: {
     open: true,
   },
-  vite: {
-    envDir: '..',
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler',
-          additionalData(source) {
-            return `@use "src/styles/main.scss" as *; ${source}`;
-          },
-        },
-      },
-    },
-  },
 });

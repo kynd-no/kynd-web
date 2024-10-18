@@ -19,7 +19,7 @@ const displayLogo = isFrontPage ? 'none' : 'flex';
   </nav>
 </header>
 
-<style lang="scss" define:vars={{ displayLogo }}>
+<style define:vars={{ displayLogo }}>
   header {
     margin: 0;
     padding: 1rem var(--content-padding);
@@ -29,7 +29,7 @@ const displayLogo = isFrontPage ? 'none' : 'flex';
     gap: 1rem;
     color: var(--color-header);
 
-    @media (min-width: $width-m) {
+    @media (--md) {
       flex-direction: row;
     }
   }
@@ -48,7 +48,7 @@ const displayLogo = isFrontPage ? 'none' : 'flex';
     flex-wrap: wrap;
     gap: 1.5rem;
 
-    @media (min-width: $width-m) {
+    @media (--md) {
       margin-left: auto;
     }
   }
