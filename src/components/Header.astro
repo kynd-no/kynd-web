@@ -1,55 +1,37 @@
 ---
-import HeaderLink from '@/components/HeaderLink.astro';
 import Logo from '@/components/Logo.astro';
-
-const { pathname } = Astro.url;
-
-const isFrontPage = pathname === '/';
-const displayLogo = isFrontPage ? 'none' : 'flex';
+import NavLink from '@/components/NavLink.astro';
 ---
 
 <header>
   <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
   <nav>
-    <HeaderLink href="/">Forside</HeaderLink>
-    <!-- <HeaderLink href="/shaker">Blogg</HeaderLink> -->
-    <!-- <HeaderLink href="/folka">Folka</HeaderLink> -->
-    <!-- <HeaderLink href="/prosjekter">Prosjekter</HeaderLink> -->
-    <HeaderLink href="/om-oss">Om oss</HeaderLink>
+    <NavLink href="/om-oss">Om oss</NavLink>
+    <NavLink href="/tjenester">Tjenester</NavLink>
+    <NavLink href="/prosjekter">Prosjekter</NavLink>
+    <NavLink href="/kontakt-oss" isButton>Kontakt oss</NavLink>
   </nav>
 </header>
 
-<style define:vars={{ displayLogo }}>
+<style>
   header {
-    margin: 0;
-    padding: 1rem var(--content-padding);
+    height: var(--size-header);
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    color: var(--color-header);
-
-    @media (--md) {
-      flex-direction: row;
-    }
+    justify-content: space-between;
   }
 
   .logo-link {
-    width: 5em;
-    display: var(--displayLogo);
-    justify-content: center;
-    align-items: center;
+    width: 6.25rem;
     flex-shrink: 0;
-    color: var(--color-header);
   }
 
   nav {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-
-    @media (--md) {
-      margin-left: auto;
-    }
+    column-gap: 2.5rem;
+    align-items: center;
   }
 </style>

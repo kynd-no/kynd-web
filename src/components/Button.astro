@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = HTMLAttributes<'button'> & {
+  variant?: 'primary' | 'secondary' | 'tertiary';
+};
+
+const { variant = 'primary', class: className, ...rest } = Astro.props;
+---
+
+<button class:list={[className, variant]} {...rest}><slot /></button>
+
+<style>
+  button {
+    /* display: inline-flex;
+    align-items: center;
+    justify-content: center; */
+    height: 4.25rem;
+    padding: 0 2.1875rem;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+
+    &.primary {
+      color: var(--color-secondary);
+      background-color: var(--color-primary);
+    }
+
+    &.secondary {
+      color: var(--color-primary);
+      background-color: var(--color-secondary);
+      border: 2px solid var(--color-primary);
+    }
+
+    &.tertiary {
+      color: var(--color-primary);
+      background-color: var(--color-accent);
+    }
+  }
+</style>

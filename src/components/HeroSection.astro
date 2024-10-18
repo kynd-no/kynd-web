@@ -1,0 +1,41 @@
+---
+import Button from './Button.astro';
+
+export type Props = {
+  title: string;
+  preamble?: string;
+};
+
+const { title, preamble } = Astro.props;
+---
+
+<div class="hero-section">
+  <div>
+    <h1>{title}</h1>
+    {preamble && <p>{preamble}</p>}
+    <Button>Les artikkel</Button>
+  </div>
+  <div>
+    <img src="/Layer_2.svg" alt="" />
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+
+  h1 {
+    font-size: var(--fs-heading-l);
+  }
+
+  p {
+    margin-block: 2rem;
+  }
+
+  img {
+    width: 100%;
+  }
+</style>

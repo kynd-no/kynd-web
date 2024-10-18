@@ -4,4 +4,37 @@
   @custom-media --lg (min-width: 64em);
   @custom-media --xl (min-width: 80em);
   @custom-media --2xl (min-width: 96em);
+
+  --color-white: #ffffff;
+  --color-black: #191a23;
+  --color-dark-blue: #1e292b;
+  --color-light-green: #b9ff66;
+  --color-light-gray: #f3f3f3;
+
+  --color-primary: var(--color-dark-blue);
+  --color-secondary: var(--color-white);
+  --color-secondary-shade: var(--color-light-gray);
+  --color-accent: var(--color-light-green);
+
+  --color-text: var(--color-primary);
+  --color-focus: orange;
+  --color-background: var(--color-white);
+  --color-shadow: var(--color-black);
+
+  --fs-heading-l: 3.75rem;
+  --fs-heading-m: 2.5rem;
+
+  --fs-body-l: 1.875rem;
+  --fs-body-m: 1.125rem;
+
+  --fs-link-l: 1.25rem;
+
+  --font: system-ui, sans-serif;
+
+  --content-max-width: 90rem;
+  --content-padding: 2rem;
+
+  --size-header: 6.25rem;
+
+  --shadow: -0.625rem 0.625rem 0 0 var(--color-shadow);
 }

@@ -1,28 +1,11 @@
 ---
-import Logo from '@/components/Logo.astro';
 import Layout from '@/layouts/Base.astro';
+import HeroSection from '@/components/HeroSection.astro';
 ---
 
 <Layout>
-  <h1 class="sr-only">Kynd</h1>
-  <div class="container">
-    <div class="logo">
-      <Logo />
-    </div>
-  </div>
+  <HeroSection
+    title="Transparent, spennende og nytenkende"
+    preamble="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab inventore."
+  />
 </Layout>
-
-<style>
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo {
-    width: 40%;
-    color: var(--yellow);
-  }
-</style>
