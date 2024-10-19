@@ -12,11 +12,10 @@ const { variant = 'primary', class: className, ...rest } = Astro.props;
 
 <style>
   button {
-    /* display: inline-flex;
-    align-items: center;
-    justify-content: center; */
-    height: 4.25rem;
-    padding: 0 2.1875rem;
+    padding: 1.25rem 2.1875rem;
+    font-size: var(--fs-link-l);
+    line-height: var(--line-height-m);
+    border: 2px solid transparent;
 
     &:hover {
       box-shadow: var(--shadow);
@@ -30,7 +29,7 @@ const { variant = 'primary', class: className, ...rest } = Astro.props;
     &.secondary {
       color: var(--color-primary);
       background-color: var(--color-secondary);
-      border: 2px solid var(--color-primary);
+      border-color: var(--color-primary);
     }
 
     &.tertiary {
