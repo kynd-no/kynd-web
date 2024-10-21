@@ -1,0 +1,27 @@
+.button {
+  --border-width: 2px;
+  padding: calc(1.25rem - var(--border-width)) calc(2.1875rem - var(--border-width));
+  font-size: var(--fs-link-l);
+  line-height: var(--line-height-m);
+  border: var(--border-width) solid transparent;
+
+  &:hover {
+    box-shadow: var(--shadow);
+  }
+
+  &.primary {
+    color: var(--color-secondary);
+    background-color: var(--color-primary);
+  }
+
+  &.secondary {
+    color: var(--color-primary);
+    background-color: var(--color-secondary);
+    border-color: var(--color-primary);
+  }
+
+  &.tertiary {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+  }
+}

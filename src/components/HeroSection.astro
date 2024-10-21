@@ -1,5 +1,5 @@
 ---
-import Button from './Button.astro';
+import ButtonLink from './ButtonLink.astro';
 
 export type Props = {
   title: string;
@@ -13,7 +13,7 @@ const { title, preamble } = Astro.props;
   <div>
     <h1>{title}</h1>
     {preamble && <p>{preamble}</p>}
-    <Button>Les artikkel</Button>
+    <ButtonLink>Les artikkel</ButtonLink>
   </div>
   <div>
     <img src="/Layer_2.svg" alt="" />
