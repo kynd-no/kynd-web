@@ -16,20 +16,14 @@ import Logo from './Logo.astro';
 
 <style>
   footer {
-    max-width: calc(var(--content-max-width) - 2 * var(--content-padding));
+    width: min(var(--content-max-width), 100%);
     padding: 4rem var(--content-padding);
-    margin: 0 auto;
+    margin-inline: auto;
     background-color: var(--color-primary);
     color: var(--color-secondary);
     display: flex;
     flex-direction: column;
     gap: 4rem;
-    /* padding: 2em 1em 6em 1em;
-    color: var(--color-footer);
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    line-height: 1; */
   }
 
   .logo {

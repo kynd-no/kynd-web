@@ -16,9 +16,8 @@ import NavLink from '@/components/NavLink.astro';
 <style>
   header {
     height: var(--size-header);
-    max-width: var(--content-max-width);
-    margin: 0 auto;
-    padding: 0 var(--content-padding);
+    width: min(var(--content-max-width), 100% - 2 * var(--content-padding));
+    margin-inline: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
