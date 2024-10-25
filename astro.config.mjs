@@ -15,4 +15,9 @@ export default defineConfig({
     open: true,
   },
   adapter: cloudflare(),
+  vite: {
+    define: {
+      'process.env.SECRET': JSON.stringify(process.env.SECRET),
+    },
+  },
 });
