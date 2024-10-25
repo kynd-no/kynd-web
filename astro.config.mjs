@@ -17,7 +17,8 @@ export default defineConfig({
   adapter: cloudflare(),
   vite: {
     define: {
-      'process.env.SECRET': JSON.stringify(process.env.SECRET),
+      'process.env.SLACK_TOKEN': JSON.stringify(process.env.SLACK_TOKEN),
+      'process.env.SLACK_CHANNEL_ID': JSON.stringify(process.env.SLACK_CHANNEL_ID),
     },
   },
 });
