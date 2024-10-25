@@ -9,6 +9,7 @@
   --color-black: #191a23;
   --color-dark-blue: #1e292b;
   --color-light-green: #b9ff66;
+  --color-gray: #898989;
   --color-light-gray: #f3f3f3;
 
   --color-primary: var(--color-dark-blue);
@@ -18,7 +19,7 @@
 
   --color-text: var(--color-primary);
   --color-focus: orange;
-  --color-background: var(--color-white);
+  --color-background: var(--color-secondary);
   --color-shadow: var(--color-black);
 
   --fs-heading-l: 3.75rem;
@@ -27,6 +28,7 @@
   --fs-body-xl: 1.875rem;
   --fs-body-l: 1.25rem;
   --fs-body-m: 1.125rem;
+  --fs-body-s: 1rem;
 
   --fs-link-l: 1.25rem;
 

@@ -40,6 +40,12 @@ main {
   width: min(var(--content-max-width), 100% - 2 * var(--content-padding));
   margin-inline: auto;
   padding-block: 8rem;
+  display: grid;
+  gap: 4rem;
+
+  @media (--md) {
+    gap: 8rem;
+  }
 }
 
 p,

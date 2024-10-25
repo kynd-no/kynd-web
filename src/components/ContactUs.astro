@@ -1,0 +1,96 @@
+---
+import AnimatedLogo from './AnimatedLogo.astro';
+import Button from './Button.astro';
+import Input from './Input.astro';
+import TextArea from './TextArea.astro';
+---
+
+<div class="wrapper">
+  <div>
+    <h2>Let's make things happen</h2>
+    <p>
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+      laudantium, totam rem aperiam, eaque ipsa quae ab inventore.
+    </p>
+    <form>
+      <Input id="name" name="name" label="Navn" placeholder="Navn" />
+      <Input id="email" name="email" label="Epost *" placeholder="Epost" required type="email" />
+      <TextArea id="message" name="message" label="Melding *" placeholder="Melding" required />
+      <Button type="submit">Send</Button>
+    </form>
+  </div>
+  <div class="logo">
+    <AnimatedLogo />
+  </div>
+</div>
+
+<style>
+  .wrapper {
+    display: grid;
+    gap: 2rem;
+    padding: var(--content-padding);
+    background-color: var(--color-secondary-shade);
+
+    @media (--md) {
+      grid-template-columns: 2fr 1fr;
+      padding: 3.75rem 3.75rem 5rem 6.25rem;
+    }
+  }
+
+  h2 {
+    font-size: var(--fs-body-xl);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: var(--fs-body-m);
+    margin-bottom: 2.5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  button {
+    margin-top: 1.5rem;
+  }
+
+  .logo {
+    align-self: flex-start;
+  }
+</style>
+
+<script>
+  import { actions, isInputError } from 'astro:actions';
+
+  const form = document.querySelector('form');
+  const button = document.querySelector('button');
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(form);
+    const { error } = await actions.contactUs(formData);
+
+    if (error) {
+      console.error(error);
+    }
+
+    if (!error) {
+      form.reset();
+      if (button) {
+        const originalText = button.textContent;
+        button.textContent = 'Sendt!';
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 3000);
+      }
+    }
+
+    if (isInputError(error)) {
+      if (error.fields.email) {
+        console.log('Email error', error.fields.email.join(', '));
+      }
+    }
+  });
+</script>
