@@ -1,8 +1,8 @@
-import { WebClient } from '@slack/web-api';
+import SlackREST from '@sagi.io/workers-slack';
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 
-const web = new WebClient(import.meta.env.SLACK_TOKEN);
+const web = new SlackREST({ botAccessToken: import.meta.env.SLACK_TOKEN });
 const channel = import.meta.env.SLACK_CHANNEL_ID;
 
 export const contactUs = defineAction({
