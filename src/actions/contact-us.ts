@@ -2,9 +2,9 @@ import SlackREST from '@sagi.io/workers-slack';
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 
-const botAccessToken = env.SLACK_TOKEN;
+const botAccessToken = process.env.SLACK_TOKEN;
 const web = new SlackREST({ botAccessToken });
-const channel = env.SLACK_CHANNEL_ID;
+const channel = process.env.SLACK_CHANNEL_ID;
 
 export const contactUs = defineAction({
   accept: 'form',
