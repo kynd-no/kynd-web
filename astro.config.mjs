@@ -15,10 +15,4 @@ export default defineConfig({
     open: true,
   },
   adapter: cloudflare(),
-  vite: {
-    define: {
-      'process.env.SLACK_TOKEN': JSON.stringify(process.env.SLACK_TOKEN),
-      'process.env.SLACK_CHANNEL_ID': JSON.stringify(process.env.SLACK_CHANNEL_ID),
-    },
-  },
 });
