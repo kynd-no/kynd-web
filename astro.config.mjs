@@ -15,4 +15,17 @@ export default defineConfig({
     open: true,
   },
   adapter: cloudflare(),
+  vite: {
+    ssr: {
+      external: [
+        'node:path',
+        'node:os',
+        'node:querystring',
+        'node:util',
+        'node:zlib',
+        'node:fs',
+        'node:stream',
+      ],
+    },
+  },
 });
