@@ -2,8 +2,9 @@ import SlackREST from '@sagi.io/workers-slack';
 import { defineAction } from 'astro:actions';
 import { z } from 'astro:schema';
 
-const web = new SlackREST({ botAccessToken: import.meta.env.SLACK_TOKEN });
-const channel = import.meta.env.SLACK_CHANNEL_ID;
+const botAccessToken = env.SLACK_TOKEN;
+const web = new SlackREST({ botAccessToken });
+const channel = env.SLACK_CHANNEL_ID;
 
 export const contactUs = defineAction({
   accept: 'form',
@@ -14,6 +15,7 @@ export const contactUs = defineAction({
   }),
   handler: async (input) => {
     await web.chat.postMessage({
+      token: botAccessToken,
       channel,
       text: `<!channel>\n${input.name ? `Navn: ${input.name}\n` : ''}Email: ${input.email}\nMessage: ${input.message}`,
     });
