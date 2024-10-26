@@ -9,7 +9,7 @@ export const contactUs = defineAction({
   accept: 'form',
   input: z.object({
     name: z.string().optional(),
-    email: z.string().email(),
+    email: z.string().email('Ugyldig e-post'),
     message: z.string(),
   }),
   handler: async (input) => {

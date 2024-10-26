@@ -11,6 +11,7 @@
   --color-light-green: #b9ff66;
   --color-gray: #898989;
   --color-light-gray: #f3f3f3;
+  --color-red: #ff0033;
 
   --color-primary: var(--color-dark-blue);
   --color-secondary: var(--color-white);
@@ -21,6 +22,7 @@
   --color-focus: orange;
   --color-background: var(--color-secondary);
   --color-shadow: var(--color-black);
+  --color-error: var(--color-red);
 
   --fs-heading-l: 3.75rem;
   --fs-heading-m: 2.5rem;

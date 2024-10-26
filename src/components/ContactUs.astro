@@ -16,6 +16,7 @@ import TextArea from './TextArea.astro';
       <Input id="name" name="name" label="Navn" placeholder="Navn" />
       <Input id="email" name="email" label="Epost *" placeholder="Epost" required type="email" />
       <TextArea id="message" name="message" label="Melding *" placeholder="Melding" required />
+      <p class="form-error" id="form-error"></p>
       <Button type="submit">Send</Button>
     </form>
   </div>
@@ -57,6 +58,13 @@ import TextArea from './TextArea.astro';
     margin-top: 1.5rem;
   }
 
+  .form-error {
+    margin: 0;
+    color: var(--color-error);
+    font-size: var(--fs-body-m);
+    display: none;
+  }
+
   .logo {
     align-self: flex-start;
   }
@@ -67,29 +75,44 @@ import TextArea from './TextArea.astro';
 
   const form = document.querySelector('form');
   const button = document.querySelector('button');
+  const formError = document.getElementById('form-error');
+
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const originalText = button?.textContent ?? '';
+
+    if (formError) {
+      formError.textContent = '';
+      formError.style.display = 'hidden';
+    }
+
+    if (button) {
+      button.textContent = 'Sender...';
+    }
+
     const formData = new FormData(form);
     const { error } = await actions.contactUs(formData);
 
     if (error) {
       console.error(error);
-    }
-
-    if (!error) {
+      if (isInputError(error) && formError) {
+        const errorMessage = error.fields.email
+          ?.concat(error.fields.message ?? [])
+          .concat(error.fields.name ?? [])
+          .join(', ');
+        formError.textContent = errorMessage ?? 'Noe gikk galt 😅';
+        formError.style.display = 'block';
+        if (button) {
+          button.textContent = originalText;
+        }
+      }
+    } else {
       form.reset();
       if (button) {
-        const originalText = button.textContent;
         button.textContent = 'Sendt!';
         setTimeout(() => {
           button.textContent = originalText;
         }, 3000);
-      }
-    }
-
-    if (isInputError(error)) {
-      if (error.fields.email) {
-        console.log('Email error', error.fields.email.join(', '));
       }
     }
   });
