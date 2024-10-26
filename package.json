@@ -29,11 +29,11 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^11.1.0",
     "@astrojs/mdx": "^3.1.8",
+    "@astrojs/netlify": "^5.5.4",
     "@astrojs/rss": "^4.0.9",
     "@astrojs/sitemap": "^3.2.1",
-    "@sagi.io/workers-slack": "^0.0.58",
+    "@slack/web-api": "^7.7.0",
     "astro": "^4.16.6",
     "sharp": "^0.33.5"
   },
