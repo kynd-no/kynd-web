@@ -34,7 +34,12 @@
 
   --fs-link-l: 1.25rem;
 
+  --line-height-l: 0.8;
   --line-height-m: 1.4;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
 
   --font: system-ui, sans-serif;
 
@@ -44,4 +49,8 @@
   --size-header: 6.25rem;
 
   --shadow: -0.625rem 0.625rem 0 0 var(--color-shadow);
+
+  --radius-full: 9999px;
+
+  --animation-duration: 0.2s;
 }

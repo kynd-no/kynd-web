@@ -12,7 +12,7 @@ import TextArea from './TextArea.astro';
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
       laudantium, totam rem aperiam, eaque ipsa quae ab inventore.
     </p>
-    <form>
+    <form class="contact-form">
       <Input id="name" name="name" label="Navn" placeholder="Navn" />
       <Input id="email" name="email" label="Epost *" placeholder="Epost" required type="email" />
       <TextArea id="message" name="message" label="Melding *" placeholder="Melding" required />
@@ -73,47 +73,51 @@ import TextArea from './TextArea.astro';
 <script>
   import { actions, isInputError } from 'astro:actions';
 
-  const form = document.querySelector('form');
-  const button = document.querySelector('button');
-  const formError = document.getElementById('form-error');
+  const forms = document.querySelectorAll<HTMLFormElement>('.contact-form');
 
-  form?.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const originalText = button?.textContent ?? '';
+  forms?.forEach((form) =>
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-    if (formError) {
-      formError.textContent = '';
-      formError.style.display = 'hidden';
-    }
+      const submitButton = form.querySelector('button');
+      const formError = form.querySelector<HTMLParagraphElement>('.form-error');
 
-    if (button) {
-      button.textContent = 'Sender...';
-    }
+      const originalText = submitButton?.textContent ?? '';
 
-    const formData = new FormData(form);
-    const { error } = await actions.contactUs(formData);
+      if (formError) {
+        formError.textContent = '';
+        formError.style.display = 'hidden';
+      }
 
-    if (error) {
-      console.error(error);
-      if (isInputError(error) && formError) {
-        const errorMessage = error.fields.email
-          ?.concat(error.fields.message ?? [])
-          .concat(error.fields.name ?? [])
-          .join(', ');
-        formError.textContent = errorMessage ?? 'Noe gikk galt 😅';
-        formError.style.display = 'block';
-        if (button) {
-          button.textContent = originalText;
+      if (submitButton) {
+        submitButton.textContent = 'Sender...';
+      }
+
+      const formData = new FormData(form);
+      const { error } = await actions.contactUs(formData);
+
+      if (error) {
+        console.error(error);
+        if (isInputError(error) && formError) {
+          const errorMessage = error.fields.email
+            ?.concat(error.fields.message ?? [])
+            .concat(error.fields.name ?? [])
+            .join(', ');
+          formError.textContent = errorMessage ?? 'Noe gikk galt 😅';
+          formError.style.display = 'block';
+          if (submitButton) {
+            submitButton.textContent = originalText;
+          }
+        }
+      } else {
+        form.reset();
+        if (submitButton) {
+          submitButton.textContent = 'Sendt!';
+          setTimeout(() => {
+            submitButton.textContent = originalText;
+          }, 3000);
         }
       }
-    } else {
-      form.reset();
-      if (button) {
-        button.textContent = 'Sendt!';
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 3000);
-      }
-    }
-  });
+    }),
+  );
 </script>

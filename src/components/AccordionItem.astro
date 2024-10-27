@@ -1,0 +1,148 @@
+---
+export type Props = {
+  title: string;
+  number?: string;
+};
+
+const { title, number } = Astro.props;
+---
+
+<div class="accordion-item">
+  <h3>
+    <button
+      type="button"
+      id="accordion-header-1"
+      class="accordion-header"
+      aria-expanded="false"
+      aria-controls="accordion-panel-1"
+    >
+      {number && <span class="accordion-item-number">{number}</span>}
+      <span>{title}</span>
+      <svg
+        class="accordion-toggle-indicator"
+        width="100%"
+        height="100%"
+        viewBox="0 0 41 41"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="accordion-toggle-indicator-horizontal"
+          d="M 21 29 L 21 11"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"></path>
+        <path d="M 12 20 H 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </h3>
+  <div
+    id="accordion-panel-1"
+    role="region"
+    class="accordion-panel"
+    aria-labelledby="accordion-header-1"
+  >
+    <div class="accordion-panel-inner">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .accordion-item {
+    border: 0.0625rem solid var(--color-primary);
+    transition: box-shadow var(--animation-duration);
+    box-shadow: 0 0.25rem 0 0 var(--color-shadow);
+    background-color: var(--color-secondary-shade);
+
+    h3 {
+      font-size: var(--fs-body-l);
+      font-weight: var(--font-weight-medium);
+
+      @media (--md) {
+        font-size: var(--fs-body-xl);
+      }
+    }
+  }
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem 2rem;
+
+    @media (--md) {
+      padding: 2rem 4rem;
+    }
+  }
+
+  .accordion-item-number {
+    font-size: var(--fs-heading-m);
+    line-height: var(--line-height-l);
+    margin-right: 1.5rem;
+
+    @media (--md) {
+      font-size: var(--fs-heading-l);
+    }
+  }
+
+  .accordion-toggle-indicator {
+    margin-left: auto;
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius-full);
+
+    .accordion-toggle-indicator-horizontal {
+      transition:
+        rotate var(--animation-duration),
+        translate var(--animation-duration);
+      transform-origin: center;
+    }
+
+    @media (--md) {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  .accordion-panel {
+    visibility: hidden;
+    overflow: hidden;
+    height: 0;
+    transition:
+      height var(--animation-duration) ease-in-out,
+      visibility 0s var(--animation-duration);
+  }
+
+  .accordion-panel-inner {
+    border-top: 0.0625rem solid var(--color-primary);
+    padding-block: 1.5rem;
+    margin-inline: 2rem;
+
+    @media (--md) {
+      padding-block: 2rem;
+      margin-inline: 4rem;
+    }
+  }
+
+  .is-open {
+    box-shadow: -0.5rem 0.5rem 0 0;
+    background-color: var(--color-accent);
+
+    .accordion-toggle-indicator {
+      .accordion-toggle-indicator-horizontal {
+        rotate: 90deg;
+        translate: 0 -1px;
+      }
+    }
+
+    .accordion-panel {
+      visibility: visible;
+      transition:
+        height var(--animation-duration) ease-in-out,
+        visibility 0s 0s;
+    }
+  }
+</style>
