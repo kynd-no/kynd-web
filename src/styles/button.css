@@ -15,6 +15,23 @@
   &.primary {
     color: var(--color-secondary);
     background-color: var(--color-primary);
+
+    &:hover {
+      position: relative;
+      box-shadow: none;
+      transform-style: preserve-3d;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0.625rem;
+        left: -0.625rem;
+        width: 100%;
+        height: 100%;
+        border: 0.125rem solid var(--color-shadow);
+        transform: translateZ(-1px);
+      }
+    }
   }
 
   &.secondary {

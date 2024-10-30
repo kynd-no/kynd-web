@@ -11,7 +11,7 @@
   --color-light-green: #b9ff66;
   --color-gray: #898989;
   --color-light-gray: #f3f3f3;
-  --color-red: #ff0033;
+  --color-red: #ff5979;
 
   --color-primary: var(--color-dark-blue);
   --color-secondary: var(--color-white);
@@ -19,7 +19,7 @@
   --color-accent: var(--color-light-green);
 
   --color-text: var(--color-primary);
-  --color-focus: orange;
+  --color-focus: var(--color-red);
   --color-background: var(--color-secondary);
   --color-shadow: var(--color-black);
   --color-error: var(--color-red);
@@ -39,9 +39,9 @@
 
   --font-weight-normal: 400;
   --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
 
-  --font: system-ui, sans-serif;
+  --font: 'Montserrat', sans-serif;
 
   --content-max-width: 74rem;
   --content-padding: 2rem;

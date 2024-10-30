@@ -4,18 +4,27 @@ import NavLink from '@/components/NavLink.astro';
 ---
 
 <header>
-  <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
-  <nav>
-    <NavLink href="/om-oss">Om oss</NavLink>
-    <NavLink href="/tjenester">Tjenester</NavLink>
-    <NavLink href="/prosjekter">Prosjekter</NavLink>
-    <NavLink href="/kontakt-oss" isButton>Kontakt oss</NavLink>
-  </nav>
+  <div class="header-content">
+    <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
+    <nav>
+      <NavLink href="/om-oss">Om oss</NavLink>
+      <NavLink href="/tjenester">Tjenester</NavLink>
+      <NavLink href="/prosjekter">Prosjekter</NavLink>
+      <NavLink href="/kontakt-oss" isButton>Kontakt oss</NavLink>
+    </nav>
+  </div>
 </header>
 
 <style>
   header {
-    height: var(--size-header);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-background);
+    padding-block: 1rem;
+    z-index: 1;
+  }
+
+  .header-content {
     width: min(var(--content-max-width), 100% - 2 * var(--content-padding));
     margin-inline: auto;
     display: flex;
