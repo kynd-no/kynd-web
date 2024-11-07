@@ -13,10 +13,23 @@ import TextArea from './TextArea.astro';
       laudantium, totam rem aperiam, eaque ipsa quae ab inventore.
     </p>
     <form class="contact-form">
-      <Input id="name" name="name" label="Navn" placeholder="Navn" />
-      <Input id="email" name="email" label="Epost *" placeholder="Epost" required type="email" />
-      <TextArea id="message" name="message" label="Melding *" placeholder="Melding" required />
-      <p class="form-error" id="form-error"></p>
+      <Input id="contact-us-name" name="name" label="Navn" placeholder="Navn" />
+      <Input
+        id="contact-us-email"
+        name="email"
+        label="Epost *"
+        placeholder="Epost"
+        required
+        type="email"
+      />
+      <TextArea
+        id="contact-us-message"
+        name="message"
+        label="Melding *"
+        placeholder="Melding"
+        required
+      />
+      <p class="form-error"></p>
       <Button type="submit">Send</Button>
     </form>
   </div>
@@ -29,23 +42,22 @@ import TextArea from './TextArea.astro';
   .wrapper {
     display: grid;
     gap: 2rem;
-    padding: var(--content-padding);
+    padding: var(--content-inner-padding);
     background-color: var(--color-secondary-shade);
 
     @media (--md) {
       grid-template-columns: 2fr 1fr;
-      padding: 3.75rem 3.75rem 5rem 6.25rem;
     }
   }
 
   h2 {
     font-size: var(--fs-body-xl);
-    margin-bottom: 1.5rem;
+    margin-block-end: 1.5rem;
   }
 
   p {
     font-size: var(--fs-body-m);
-    margin-bottom: 2.5rem;
+    margin-block-end: 2.5rem;
   }
 
   form {
@@ -55,7 +67,7 @@ import TextArea from './TextArea.astro';
   }
 
   button {
-    margin-top: 1.5rem;
+    margin-block-start: 1.5rem;
   }
 
   .form-error {

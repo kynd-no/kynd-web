@@ -1,4 +1,5 @@
 ---
+import Input from './Input.astro';
 import Logo from './Logo.astro';
 ---
 
@@ -6,18 +7,34 @@ import Logo from './Logo.astro';
   <div class="logo">
     <Logo />
   </div>
-  <div>
+  <div class="grid">
     <div class="list">
-      <div class="foo">Kontakt oss</div>
+      <div class="list-header">Kontakt oss</div>
       <div>kynd AS</div>
+      <a href="tel:+4712345678">Tlf: 123 45 678</a>
+      <a href="mailto:hei@kynd.no">hei@kynd.no</a>
+    </div>
+    <div class="list">
+      <div class="list-header">Sosiale medier</div>
+      <a href="https://www.linkedin.com/company/kynd-no/" target="_blank" rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a href="https://www.instagram.com/kynd_no/" target="_blank" rel="noopener noreferrer"
+        >Instagram</a
+      >
+    </div>
+    <div class="list newsletter-list">
+      <div class="list-header">Nyhetsbrev</div>
+      <Input id="newsletter" label="Nyhetsbrev" hiddenLabel name="newsletter" placeholder="Epost" />
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    width: min(var(--content-max-width), 100%);
-    padding: 4rem var(--content-padding);
+    inline-size: min(var(--content-max-width), 100%);
+    padding-inline: var(--content-inner-padding);
+    padding-block: 4rem;
     margin-inline: auto;
     background-color: var(--color-primary);
     color: var(--color-secondary);
@@ -27,7 +44,15 @@ import Logo from './Logo.astro';
   }
 
   .logo {
-    width: 6.25rem;
+    inline-size: 6.25rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-block-end: 4rem;
+    border-block-end: 0.0625rem solid var(--color-secondary);
   }
 
   .list {
@@ -37,8 +62,14 @@ import Logo from './Logo.astro';
     gap: 1rem;
   }
 
-  .foo {
+  .list-header {
     color: var(--color-primary);
     background-color: var(--color-accent);
+    padding: 0.25rem;
+    font-size: var(--fs-body-l);
+  }
+
+  .newsletter-list {
+    justify-content: space-between;
   }
 </style>

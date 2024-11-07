@@ -25,7 +25,7 @@ import NavLink from '@/components/NavLink.astro';
   }
 
   .header-content {
-    width: min(var(--content-max-width), 100% - 2 * var(--content-padding));
+    inline-size: min(var(--content-max-width), 100% - 2 * var(--content-padding));
     margin-inline: auto;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@ import NavLink from '@/components/NavLink.astro';
   }
 
   .logo-link {
-    width: 6.25rem;
+    inline-size: 6.25rem;
     flex-shrink: 0;
   }
 

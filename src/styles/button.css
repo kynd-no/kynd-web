@@ -3,7 +3,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: calc(1.25rem - var(--border-width)) calc(2.1875rem - var(--border-width));
+  padding-block: calc(1.25rem - var(--border-width));
+  padding-inline: calc(2.1875rem - var(--border-width));
   font-size: var(--fs-link-l);
   line-height: var(--line-height-m);
   border: var(--border-width) solid transparent;

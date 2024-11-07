@@ -15,7 +15,8 @@ const { aspectRatio = 'intrinsic', objectFit, ...rest } = Astro.props;
 
 <style define:vars={{ aspectRatio, objectFit }}>
   :global(img) {
-    width: 100%;
+    inline-size: 100%;
+    block-size: auto;
     border-radius: 0.5rem;
     aspect-ratio: var(--aspectRatio);
     object-fit: var(--objectFit);

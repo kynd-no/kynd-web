@@ -1,4 +1,4 @@
-@import 'reset.css';
+@import 'reset.css' layer(reset);
 @import 'variables.css';
 @import 'utilities.css';
 
@@ -62,10 +62,6 @@ h6 {
 
 p {
   text-wrap: pretty;
-}
-
-img {
-  height: auto;
 }
 
 button {

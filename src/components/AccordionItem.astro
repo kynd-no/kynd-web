@@ -66,20 +66,21 @@ const { title, number } = Astro.props;
   }
 
   button {
-    width: 100%;
+    inline-size: 100%;
     display: flex;
     align-items: center;
-    padding: 1rem 2rem;
+    padding-inline: var(--content-inner-padding);
+    padding-block: 1rem;
 
     @media (--md) {
-      padding: 2rem 4rem;
+      padding-block: 2rem;
     }
   }
 
   .accordion-item-number {
     font-size: var(--fs-heading-m);
     line-height: var(--line-height-l);
-    margin-right: 1.5rem;
+    margin-inline-end: 1.5rem;
 
     @media (--md) {
       font-size: var(--fs-heading-l);
@@ -87,10 +88,11 @@ const { title, number } = Astro.props;
   }
 
   .accordion-toggle-indicator {
-    margin-left: auto;
+    --indicator-size: 2rem;
+    width: var(--indicator-size);
+    height: var(--indicator-size);
+    margin-inline-start: auto;
     flex-shrink: 0;
-    width: 2rem;
-    height: 2rem;
     background-color: var(--color-secondary);
     border-radius: var(--radius-full);
 
@@ -102,8 +104,7 @@ const { title, number } = Astro.props;
     }
 
     @media (--md) {
-      width: 2.5rem;
-      height: 2.5rem;
+      --indicator-size: 2.5rem;
     }
   }
 
@@ -117,7 +118,7 @@ const { title, number } = Astro.props;
   }
 
   .accordion-panel-inner {
-    border-top: 0.0625rem solid var(--color-primary);
+    border-block-start: 0.0625rem solid var(--color-primary);
     padding-block: 1.5rem;
     margin-inline: 2rem;
 
