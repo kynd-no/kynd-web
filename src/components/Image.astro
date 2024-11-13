@@ -2,11 +2,10 @@
 import { Image as AstroImage, type LocalImageProps } from 'astro:assets';
 
 export type Props = LocalImageProps & {
-  aspectRatio?: number | 'intrinsic' | undefined;
   objectFit?: 'contain' | 'cover' | undefined;
 };
 
-const { aspectRatio = 'intrinsic', objectFit, src, alt } = Astro.props;
+const { objectFit, src, alt } = Astro.props;
 ---
 
 <div>
@@ -18,11 +17,10 @@ const { aspectRatio = 'intrinsic', objectFit, src, alt } = Astro.props;
   />
 </div>
 
-<style define:vars={{ aspectRatio, objectFit }}>
+<style define:vars={{ objectFit }}>
   :global(img) {
     inline-size: 100%;
     block-size: auto;
-    aspect-ratio: var(--aspectRatio);
     object-fit: var(--objectFit);
   }
 </style>
