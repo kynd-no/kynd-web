@@ -1,0 +1,28 @@
+---
+export type Props = {
+  align?: 'left' | 'right' | 'center';
+};
+
+const { align = 'left' } = Astro.props;
+
+const leftMargin = align === 'left' ? '0' : 'auto';
+const rightMargin = align === 'right' ? '0' : 'auto';
+---
+
+<p>
+  <slot />
+</p>
+
+<style define:vars={{ leftMargin, rightMargin }}>
+  p {
+    max-width: min(65ch, 60%);
+    font-size: var(--fs-body-l);
+    font-weight: 400;
+    margin-inline-start: var(--leftMargin);
+    margin-inline-end: var(--rightMargin);
+
+    @media (--md) {
+      font-size: var(--fs-body-xl);
+    }
+  }
+</style>

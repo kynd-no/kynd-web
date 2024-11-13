@@ -3,8 +3,12 @@ import Accordion from '@/components/Accordion.astro';
 import AccordionItem from '@/components/AccordionItem.astro';
 import ContactUs from '@/components/ContactUs.astro';
 import HeroSection from '@/components/HeroSection.astro';
+import Image from '@/components/Image.astro';
 import PageSection from '@/components/PageSection.astro';
+import Prose from '@/components/Prose.astro';
 import Layout from '@/layouts/Base.astro';
+
+import omOssImage from '@/assets/slack-imgs 1.png';
 ---
 
 <Layout>
@@ -16,7 +20,15 @@ import Layout from '@/layouts/Base.astro';
     heading="Prosjekter"
     subheading="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium."
   >
-    <p>Tjenester</p>
+    <Prose align="right">
+      Kynd ble stiftet i 2024 av tre amigos - Daniel, Frederik og Axel – som har gått sammen om å
+      lage en transparent, spennende og nytenkende arbeidsplass. Vi er et konsulentbyrå innen
+      fullstack softwareutvikling, organisasjonsdesign og smidig produkt-, team og endringsledelse.
+    </Prose>
+    <Image
+      src={omOssImage}
+      alt="Tre amigos - Axel, Daniel og Frederik - står foran en gul vegg med armene i kryss og ser ganske så fornøyde ut"
+    />
   </PageSection>
   <ContactUs />
   <Accordion>
