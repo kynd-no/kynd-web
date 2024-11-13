@@ -6,11 +6,16 @@ export type Props = LocalImageProps & {
   objectFit?: 'contain' | 'cover' | undefined;
 };
 
-const { aspectRatio = 'intrinsic', objectFit, ...rest } = Astro.props;
+const { aspectRatio = 'intrinsic', objectFit, src, alt } = Astro.props;
 ---
 
 <div>
-  <AstroImage {...rest} />
+  <AstroImage
+    src={src}
+    alt={alt}
+    widths={[240, 540, 720, 1600]}
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, 1600px`}
+  />
 </div>
 
 <style define:vars={{ aspectRatio, objectFit }}>
