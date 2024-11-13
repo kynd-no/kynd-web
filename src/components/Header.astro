@@ -1,17 +1,17 @@
 ---
 import Logo from '@/components/Logo.astro';
-import NavLink from '@/components/NavLink.astro';
+// import NavLink from '@/components/NavLink.astro';
 ---
 
 <header>
   <div class="header-content">
     <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
-    <nav>
+    <!-- <nav>
       <NavLink href="/om-oss">Om oss</NavLink>
       <NavLink href="/tjenester">Tjenester</NavLink>
       <NavLink href="/prosjekter">Prosjekter</NavLink>
       <NavLink href="/kontakt-oss" isButton>Kontakt oss</NavLink>
-    </nav>
+    </nav> -->
   </div>
 </header>
 
@@ -33,6 +33,7 @@ import NavLink from '@/components/NavLink.astro';
   }
 
   .logo-link {
+    display: flex;
     inline-size: 6.25rem;
     flex-shrink: 0;
   }

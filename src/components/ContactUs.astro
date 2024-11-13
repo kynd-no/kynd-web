@@ -56,8 +56,12 @@ import TextArea from './TextArea.astro';
   }
 
   p {
-    font-size: var(--fs-body-m);
+    font-size: var(--fs-body-s);
     margin-block-end: 2.5rem;
+
+    @media (--md) {
+      font-size: var(--fs-body-m);
+    }
   }
 
   form {
@@ -79,6 +83,11 @@ import TextArea from './TextArea.astro';
 
   .logo {
     align-self: flex-start;
+    display: none;
+
+    @media (--md) {
+      display: block;
+    }
   }
 </style>
 

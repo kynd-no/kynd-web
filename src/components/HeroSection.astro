@@ -15,7 +15,7 @@ const { title, preamble } = Astro.props;
     {preamble && <p>{preamble}</p>}
     <ButtonLink href="/">Les artikkel</ButtonLink>
   </div>
-  <div>
+  <div class="image-container">
     <img src="/Layer_2.svg" alt="" />
   </div>
 </div>
@@ -23,17 +23,39 @@ const { title, preamble } = Astro.props;
 <style>
   .hero-section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+
+    @media (--sm) {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (--lg) {
+      gap: 5rem;
+    }
   }
 
   h1 {
-    font-size: var(--fs-heading-l);
+    font-size: var(--fs-heading-m);
+
+    @media (--md) {
+      font-size: var(--fs-heading-l);
+    }
   }
 
   p {
     margin-block: 2rem;
-    font-size: var(--fs-body-l);
-    line-height: var(--line-height-m);
+    font-size: var(--fs-body-m);
+
+    @media (--md) {
+      font-size: var(--fs-body-l);
+    }
+  }
+
+  .image-container {
+    display: none;
+
+    @media (--sm) {
+      display: block;
+    }
   }
 </style>

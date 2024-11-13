@@ -25,6 +25,7 @@ body {
   font-family: var(--font);
   font-weight: var(--font-weight-medium);
   font-optical-sizing: auto;
+  line-height: var(--line-height-m);
   color: var(--color-text);
   background-color: var(--color-background);
 }
@@ -58,6 +59,7 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
+  line-height: var(--line-height-l);
 }
 
 p {

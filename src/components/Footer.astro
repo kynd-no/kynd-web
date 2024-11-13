@@ -49,10 +49,15 @@ import Logo from './Logo.astro';
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    column-gap: 2rem;
+    row-gap: 4rem;
     padding-block-end: 4rem;
     border-block-end: 0.0625rem solid var(--color-secondary);
+
+    @media (--md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   .list {
