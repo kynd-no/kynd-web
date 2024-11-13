@@ -1,80 +1,85 @@
 ---
-const today = new Date();
+// import Input from './Input.astro';
+import Logo from './Logo.astro';
 ---
 
 <footer>
-  <div class="company-info">
-    <span>kynd AS</span>
-    <span class="orgnr">Org.nr. 933 031 667</span>
-    <a class="mail-link" href="mailto:hei@kynd.no">hei@kynd.no</a>
+  <div class="logo">
+    <Logo />
   </div>
-  <div>
-    <div class="social-links">
-      <a href="https://www.linkedin.com/company/kynd-no/" target="_blank">
-        <span class="sr-only">Følg Kynd på LinkedIn</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-          ><path
-            fill="currentColor"
-            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"
-          ></path></svg
-        >
-      </a>
-      <a href="https://github.com/kynd-no" target="_blank">
-        <span class="sr-only">Gå til Kynds GitHub</span>
-        <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32"
-          ><path
-            fill="currentColor"
-            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"
-          ></path></svg
-        >
-      </a>
+  <div class="grid">
+    <div class="list">
+      <div class="list-header">Kontakt oss</div>
+      <div>kynd AS</div>
+      <div>Org. nr.: 933 031 667</div>
+      <a href="mailto:hei@kynd.no">hei@kynd.no</a>
     </div>
-    <span class="copyright">&copy; {today.getFullYear()} kynd</span>
+    <div class="list">
+      <div class="list-header">Sosiale medier</div>
+      <a href="https://www.linkedin.com/company/kynd-no/" target="_blank" rel="noopener noreferrer"
+        >LinkedIn</a
+      >
+      <a href="https://www.instagram.com/kynd_no/" target="_blank" rel="noopener noreferrer"
+        >Instagram</a
+      >
+    </div>
+    <!-- <div class="list newsletter-list">
+      <div class="list-header">Nyhetsbrev</div>
+      <Input id="newsletter" label="Nyhetsbrev" hiddenLabel name="newsletter" placeholder="Epost" />
+    </div> -->
   </div>
 </footer>
+
 <style>
   footer {
-    padding: 2em 1em 6em 1em;
-    color: var(--color-footer);
+    inline-size: min(var(--content-max-width), 100%);
+    padding-inline: var(--content-inner-padding);
+    padding-block: 4rem;
+    margin-inline: auto;
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    line-height: 1;
+    gap: 4rem;
   }
 
-  .company-info {
+  .logo {
+    inline-size: 6.25rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 2rem;
+    row-gap: 4rem;
+    padding-block-end: 4rem;
+    border-block-end: 0.0625rem solid var(--color-secondary);
+
+    @media (--md) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .list {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 0.5em;
+    align-items: start;
+    gap: 1rem;
   }
 
-  .orgnr {
-    color: var(--color-footer);
+  .list-header {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+    padding: 0.25rem;
+    font-size: var(--fs-body-l);
   }
 
-  .mail-link {
-    color: var(--color-footer);
+  .newsletter-list {
+    justify-content: space-between;
   }
 
-  .social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1em;
-  }
-
-  .social-links a {
-    color: var(--color-footer);
-    /* color: rgb(var(--gray)); */
-  }
-
-  .social-links a:hover {
-    /* color: rgb(var(--gray-dark)); */
-  }
-
-  .copyright {
-    margin-top: 0.5rem;
-    display: block;
-    text-align: center;
+  a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
   }
 </style>

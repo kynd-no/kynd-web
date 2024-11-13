@@ -1,0 +1,63 @@
+:root {
+  @custom-media --sm (min-width: 40em);
+  @custom-media --md (min-width: 48em);
+  @custom-media --lg (min-width: 64em);
+  @custom-media --xl (min-width: 80em);
+  @custom-media --2xl (min-width: 96em);
+
+  --color-white: #ffffff;
+  --color-black: #191a23;
+  --color-dark-blue: #1e292b;
+  --color-light-green: #b9ff66;
+  --color-gray: #898989;
+  --color-light-gray: #f3f3f3;
+  --color-red: #ff5979;
+
+  --color-primary: var(--color-dark-blue);
+  --color-secondary: var(--color-white);
+  --color-secondary-shade: var(--color-light-gray);
+  --color-accent: var(--color-light-green);
+
+  --color-text: var(--color-primary);
+  --color-focus: var(--color-red);
+  --color-background: var(--color-secondary);
+  --color-shadow: var(--color-black);
+  --color-error: var(--color-red);
+
+  --fs-heading-l: 3.75rem;
+  --fs-heading-m: 2.5rem;
+  --fs-heading-s: 2rem;
+
+  --fs-body-xl: 1.875rem;
+  --fs-body-l: 1.25rem;
+  --fs-body-m: 1.125rem;
+  --fs-body-s: 1rem;
+
+  --fs-link-l: 1.25rem;
+  --fs-link-m: 1.125rem;
+
+  --line-height-l: 1;
+  --line-height-m: 1.4;
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  --font: 'Montserrat', sans-serif;
+
+  --content-max-width: 74rem;
+  --content-padding: 2rem;
+  --content-inner-padding: 2rem;
+
+  --size-header: 6.25rem;
+
+  --shadow: -0.625rem 0.625rem 0 0 var(--color-shadow);
+
+  --radius-full: 9999px;
+
+  --animation-duration: 0.2s;
+
+  @media (--md) {
+    --content-inner-padding: 4rem;
+  }
+}

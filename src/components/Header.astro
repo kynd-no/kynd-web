@@ -1,55 +1,49 @@
 ---
-import HeaderLink from '@/components/HeaderLink.astro';
 import Logo from '@/components/Logo.astro';
-
-const { pathname } = Astro.url;
-
-const isFrontPage = pathname === '/';
-const displayLogo = isFrontPage ? 'none' : 'flex';
+import NavLink from '@/components/NavLink.astro';
 ---
 
 <header>
-  <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
-  <nav>
-    <HeaderLink href="/">Forside</HeaderLink>
-    <!-- <HeaderLink href="/shaker">Blogg</HeaderLink> -->
-    <!-- <HeaderLink href="/folka">Folka</HeaderLink> -->
-    <!-- <HeaderLink href="/prosjekter">Prosjekter</HeaderLink> -->
-    <HeaderLink href="/om-oss">Om oss</HeaderLink>
-  </nav>
+  <div class="header-content">
+    <a href="/" aria-label="Forside" class="logo-link"><Logo /></a>
+    <!-- <nav>
+      <NavLink href="/om-oss">Om oss</NavLink>
+      <NavLink href="/tjenester">Tjenester</NavLink>
+      <NavLink href="/prosjekter">Prosjekter</NavLink>
+      <NavLink href="/kontakt-oss" isButton>Kontakt oss</NavLink>
+    </nav> -->
+    <nav>
+      <NavLink href="/om-oss" isButton>Om oss</NavLink>
+    </nav>
+  </div>
 </header>
 
-<style lang="scss" define:vars={{ displayLogo }}>
+<style>
   header {
-    margin: 0;
-    padding: 1rem var(--content-padding);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    color: var(--color-header);
+    position: sticky;
+    top: 0;
+    background-color: var(--color-background);
+    padding-block: 1rem;
+    z-index: 1;
+  }
 
-    @media (min-width: $width-m) {
-      flex-direction: row;
-    }
+  .header-content {
+    inline-size: min(var(--content-max-width), 100% - 2 * var(--content-padding));
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .logo-link {
-    width: 5em;
-    display: var(--displayLogo);
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    inline-size: 6.25rem;
     flex-shrink: 0;
-    color: var(--color-header);
   }
 
   nav {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-
-    @media (min-width: $width-m) {
-      margin-left: auto;
-    }
+    column-gap: 2.5rem;
+    align-items: center;
   }
 </style>

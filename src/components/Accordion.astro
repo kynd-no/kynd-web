@@ -1,0 +1,86 @@
+<div>
+  <slot />
+</div>
+
+<script>
+  const accordionItems = [...document.querySelectorAll<HTMLLIElement>('.accordion-item')];
+
+  function getPanelHeight(accordionItem: HTMLLIElement) {
+    const accordionInner = accordionItem.querySelector<HTMLDivElement>('.accordion-panel-inner');
+    return accordionInner?.getBoundingClientRect().height;
+  }
+
+  function openAccordionItem(accordionItem: HTMLLIElement) {
+    const accordionItemHeader = accordionItem.querySelector<HTMLButtonElement>('.accordion-header');
+    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion-panel');
+
+    if (!accordionItemHeader || !accordionPanel) return;
+
+    accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
+    accordionItem.classList.add('is-open');
+    accordionItemHeader.setAttribute('aria-expanded', 'true');
+    accordionPanel.addEventListener(
+      'transitionend',
+      () => {
+        // Check if class name is present to avoid double click bug
+        if (accordionItem.classList.contains('is-open')) {
+          accordionPanel.style.height = 'auto';
+        }
+      },
+      { once: true },
+    );
+  }
+
+  function closeAccordionItem(accordionItem: HTMLLIElement) {
+    const accordionItemHeader = accordionItem.querySelector<HTMLButtonElement>('.accordion-header');
+    const accordionPanel = accordionItem.querySelector<HTMLDivElement>('.accordion-panel');
+
+    if (!accordionItemHeader || !accordionPanel) return;
+
+    accordionItem.classList.remove('is-open');
+    accordionPanel.style.height = `${getPanelHeight(accordionItem)}px`;
+    accordionItemHeader.setAttribute('aria-expanded', 'false');
+    accordionPanel.addEventListener(
+      'transitionrun',
+      () => {
+        // Timeout needed for Firefox
+        setTimeout(() => {
+          accordionPanel.style.height = '0';
+        }, 0);
+      },
+      { once: true },
+    );
+  }
+
+  function isAccordionOpen(accordionItem: HTMLLIElement) {
+    return accordionItem.classList.contains('is-open');
+  }
+
+  accordionItems.forEach((item, index) => {
+    const accordionItemHeader = item.querySelector<HTMLButtonElement>('.accordion-header');
+    const accordionItemPanel = item.querySelector<HTMLDivElement>('.accordion-panel');
+
+    if (!accordionItemHeader || !accordionItemPanel) return;
+
+    accordionItemHeader.setAttribute('id', `accordion-header-${index + 1}`);
+    accordionItemPanel.setAttribute('id', `accordion-panel-${index + 1}`);
+    accordionItemHeader.setAttribute('aria-controls', `accordion-panel-${index + 1}`);
+    accordionItemPanel.setAttribute('aria-labelledby', `accordion-header-${index + 1}`);
+
+    accordionItemHeader.addEventListener('click', () => {
+      if (isAccordionOpen(item)) {
+        closeAccordionItem(item);
+      } else {
+        openAccordionItem(item);
+      }
+    });
+  });
+</script>
+
+<style>
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

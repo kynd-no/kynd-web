@@ -1,47 +1,17 @@
-@import 'reset.css';
+@import 'reset.css' layer(reset);
+@import 'variables.css';
+@import 'utilities.css';
 
-:root {
-  /* --box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%); */
-
-  --beige-light: #ffe6c9;
-  --grey-dark: #212121;
-  --gray-light: #d3d3d3;
-  --orange-dark: #ce5644;
-  --yellow: #dba847;
-
-  --color-header: var(--yellow);
-  --color-footer: var(--yellow);
-  --color-text: var(--beige-light);
-  --color-focus: var(--orange-dark);
-  --color-background: var(--grey-dark);
-  --color-link: var(--orange-dark);
-  --content-padding: 2rem;
-  --content-max-width: 60rem;
-  --font: 'Atkinson', system-ui, sans-serif;
-  --fs-h1: 300%;
-  --fs-h2: 200%;
-  --fs-h3: 150%;
-  --fs-h4: 125%;
-}
+@import 'button.css';
 
 @font-face {
-  font-family: 'Atkinson';
-  src: url('/fonts/atkinson-regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Atkinson';
-  src: url('/fonts/atkinson-bold.woff') format('woff');
-  font-weight: 700;
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
   font-display: swap;
 }
 
 *:focus-visible {
-  border-radius: 0.25rem;
   outline: 0.125rem solid var(--color-focus);
   outline-offset: 0.125rem;
 }
@@ -53,68 +23,50 @@ html {
 
 body {
   font-family: var(--font);
+  font-weight: var(--font-weight-medium);
+  font-optical-sizing: auto;
+  line-height: var(--line-height-m);
   color: var(--color-text);
   background-color: var(--color-background);
-  line-height: 1.9;
-  min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
 }
 
 main {
-  max-width: var(--content-max-width);
-  margin: auto;
-  padding: 3rem var(--content-padding);
-  flex: 1;
-  width: 100%;
+  width: min(var(--content-max-width), 100% - 2 * var(--content-padding));
+  margin-inline: auto;
+  padding-block: 4rem;
+  display: grid;
+  gap: 4rem;
+
+  @media (--md) {
+    gap: 8rem;
+    padding-block: 8rem;
+  }
 }
 
-img {
-  height: auto;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
 }
 
 h1,
 h2,
 h3,
-h4 {
-  line-height: 1.4;
-  font-weight: 600;
-  margin: 2rem 0 1rem 0;
-}
-
-h1 {
-  font-size: clamp(var(--fs-h2), 5vw, var(--fs-h1));
-}
-
-h2 {
-  font-size: clamp(var(--fs-h3), 5vw, var(--fs-h2));
-}
-
-h3 {
-  font-size: var(--fs-h3);
-}
-
-h4 {
-  font-size: var(--fs-h4);
-}
-
-ul,
-ol {
-  padding-left: 1.25em;
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  line-height: var(--line-height-l);
 }
 
 p {
-  margin-bottom: 1rem;
+  text-wrap: pretty;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+button {
+  cursor: pointer;
 }

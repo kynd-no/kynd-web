@@ -20,7 +20,7 @@ const { Content } = await employee.render();
 
 <Layout title={title} description={`Vi har jobba med ${title}`}>
   <article>
-    <Image src={image} alt={title} loading="eager" aspectRatio={1} objectFit="cover" />
+    <Image src={image} alt={title} loading="eager" objectFit="cover" />
     <h1>{title}</h1>
     <div class="summary">
       <div>
@@ -37,7 +37,7 @@ const { Content } = await employee.render();
   </article>
 </Layout>
 
-<style lang="scss">
+<style>
   :global(img) {
     height: 13rem;
   }
@@ -60,7 +60,7 @@ const { Content } = await employee.render();
     border: 1px solid var(--color-footer);
     transition: all 0.2s;
 
-    :global(svg) {
+    & :global(svg) {
       height: 1.5rem;
       width: 1.5rem;
     }

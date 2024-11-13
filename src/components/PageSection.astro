@@ -1,0 +1,60 @@
+---
+export type Props = {
+  heading: string;
+  subheading?: string;
+};
+
+const { heading, subheading } = Astro.props;
+---
+
+<section>
+  <div class="heading-container">
+    <h2>{heading}</h2>
+    <div class="subheading">{subheading}</div>
+  </div>
+  <slot />
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: 2.5rem;
+
+    @media (--md) {
+      gap: 4rem;
+    }
+  }
+
+  .heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    column-gap: 2.5rem;
+    row-gap: 1.5rem;
+
+    @media (--md) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  h2 {
+    font-size: var(--fs-heading-s);
+    background-color: var(--color-accent);
+    padding: 0.5rem;
+
+    @media (--md) {
+      font-size: var(--fs-heading-m);
+    }
+  }
+
+  .subheading {
+    font-size: var(--fs-body-s);
+    font-weight: 400;
+
+    @media (--md) {
+      max-width: 50%;
+      font-size: var(--fs-body-m);
+    }
+  }
+</style>

@@ -20,7 +20,7 @@ const { Content } = await employee.render();
 
 <Layout title={name} description={`Møt ${name}`}>
   <article>
-    <Image src={image} alt={name} loading="eager" aspectRatio={1} objectFit="cover" />
+    <Image src={image} alt={name} loading="eager" objectFit="cover" />
     <div>
       <h1>{name}</h1>
       <Content />
@@ -29,13 +29,13 @@ const { Content } = await employee.render();
   <EmployeeGrid />
 </Layout>
 
-<style lang="scss">
+<style>
   article {
     display: grid;
     gap: 3rem;
     margin-bottom: 5rem;
 
-    @media (min-width: $width-m) {
+    @media (--md) {
       grid-template-columns: 1fr 1fr;
     }
   }

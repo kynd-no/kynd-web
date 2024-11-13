@@ -1,28 +1,38 @@
 ---
-import Logo from '@/components/Logo.astro';
+import teamImage from '@/assets/felles-1.jpg';
+import ContactUs from '@/components/ContactUs.astro';
+import HeroSection from '@/components/HeroSection.astro';
+import Image from '@/components/Image.astro';
+import PageSection from '@/components/PageSection.astro';
+import Prose from '@/components/Prose.astro';
 import Layout from '@/layouts/Base.astro';
 ---
 
 <Layout>
-  <h1 class="sr-only">Kynd</h1>
-  <div class="container">
-    <div class="logo">
-      <Logo />
-    </div>
-  </div>
+  <HeroSection
+    title="Something forfriskende, kynd"
+    preamble="En gjeng kompetente folk som bygger et annerledes konsulentbyrå sammen."
+    image="/Layer_2.svg"
+  />
+  <PageSection heading="Team" subheading="Vi skaper kynd sammen">
+    <Prose align="right">
+      <p>
+        Kynd ble stiftet i 2024 av tre amigos - Daniel, Frederik og Axel – som har gått sammen om å
+        lage en transparent, spennende og nytenkende arbeidsplass. Vi er et konsulentbyrå innen
+        fullstack softwareutvikling, organisasjonsdesign og smidig produkt-, team og
+        endringsledelse.
+      </p>
+    </Prose>
+    <Image
+      src={teamImage}
+      alt="Tre amigos - Axel, Daniel og Frederik - står foran en gul vegg med armene i kryss og ser ganske så fornøyde ut"
+      loading="eager"
+    />
+  </PageSection>
+  <PageSection
+    heading="Kontakt oss"
+    subheading="Nysgjerrig på samarbeid, enten som medeier eller kunde? Hit us up!"
+  >
+    <ContactUs />
+  </PageSection>
 </Layout>
-
-<style>
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo {
-    width: 40%;
-    color: var(--yellow);
-  }
-</style>

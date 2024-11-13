@@ -1,0 +1,66 @@
+---
+import ButtonLink from './ButtonLink.astro';
+
+export type Props = {
+  title: string;
+  preamble?: string;
+  link?: {
+    label: string;
+    href: string;
+  };
+  image?: string;
+};
+
+const { title, preamble, link, image } = Astro.props;
+---
+
+<div class="hero-section">
+  <div>
+    <h1>{title}</h1>
+    {preamble && <p>{preamble}</p>}
+    {link && <ButtonLink href={link.href}>{link.label}</ButtonLink>}
+  </div>
+  <div class="image-container">
+    {image && <img src={image} alt="" />}
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    display: grid;
+
+    @media (--sm) {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    @media (--lg) {
+      gap: 5rem;
+    }
+  }
+
+  h1 {
+    font-size: var(--fs-heading-m);
+
+    @media (--md) {
+      font-size: var(--fs-heading-l);
+    }
+  }
+
+  p {
+    margin-block: 2rem;
+    font-size: var(--fs-body-m);
+
+    @media (--md) {
+      font-size: var(--fs-body-l);
+    }
+  }
+
+  .image-container {
+    display: none;
+
+    @media (--sm) {
+      display: block;
+    }
+  }
+</style>

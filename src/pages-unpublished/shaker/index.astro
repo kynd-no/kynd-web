@@ -33,7 +33,7 @@ const posts = (await getCollection('blog')).sort((a, b) => {
   </section>
 </Layout>
 
-<style lang="scss">
+<style>
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -78,12 +78,12 @@ const posts = (await getCollection('blog')).sort((a, b) => {
   }
   ul li a:hover h4,
   ul li a:hover .date {
-    // color: rgb(var(--accent));
+    /* color: rgb(var(--accent)); */
   }
   ul a:hover img {
-    // box-shadow: var(--box-shadow);
+    /* box-shadow: var(--box-shadow); */
   }
-  @media (max-width: $width-s) {
+  @media (--sm) {
     ul {
       gap: 0.5em;
     }

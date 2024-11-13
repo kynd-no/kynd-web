@@ -1,0 +1,141 @@
+---
+import AnimatedLogo from './AnimatedLogo.astro';
+import Button from './Button.astro';
+import Input from './Input.astro';
+import TextArea from './TextArea.astro';
+---
+
+<div class="wrapper">
+  <div>
+    <h3>Bring on the hustle</h3>
+    <p>Send oss en melding a, den går rett i Slack-en vår</p>
+    <form class="contact-form">
+      <Input id="contact-us-name" name="name" label="Navn" placeholder="Navn" />
+      <Input
+        id="contact-us-email"
+        name="email"
+        label="E-post *"
+        placeholder="E-post"
+        required
+        type="email"
+      />
+      <TextArea
+        id="contact-us-message"
+        name="message"
+        label="Melding *"
+        placeholder="Melding"
+        required
+      />
+      <p class="form-error"></p>
+      <Button type="submit">Send</Button>
+    </form>
+  </div>
+  <div class="logo">
+    <AnimatedLogo />
+  </div>
+</div>
+
+<style>
+  .wrapper {
+    display: grid;
+    gap: 2rem;
+    padding: var(--content-inner-padding);
+    background-color: var(--color-secondary-shade);
+
+    @media (--md) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  h3 {
+    font-size: var(--fs-body-xl);
+    margin-block-end: 1.5rem;
+  }
+
+  p {
+    font-size: var(--fs-body-s);
+    margin-block-end: 2.5rem;
+
+    @media (--md) {
+      font-size: var(--fs-body-m);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  button {
+    margin-block-start: 1.5rem;
+  }
+
+  .form-error {
+    margin: 0;
+    color: var(--color-error);
+    font-size: var(--fs-body-m);
+    display: none;
+  }
+
+  .logo {
+    align-self: flex-start;
+    display: none;
+
+    @media (--md) {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  import { actions, isInputError } from 'astro:actions';
+
+  const forms = document.querySelectorAll<HTMLFormElement>('.contact-form');
+
+  forms?.forEach((form) =>
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const submitButton = form.querySelector('button');
+      const formError = form.querySelector<HTMLParagraphElement>('.form-error');
+
+      const originalText = submitButton?.textContent ?? '';
+
+      if (formError) {
+        formError.textContent = '';
+        formError.style.display = 'hidden';
+      }
+
+      if (submitButton) {
+        submitButton.textContent = 'Sender...';
+      }
+
+      const formData = new FormData(form);
+      const { error } = await actions.contactUs(formData);
+
+      if (error) {
+        console.error(error);
+        if (isInputError(error) && formError) {
+          const errorMessage = error.fields.email
+            ?.concat(error.fields.message ?? [])
+            .concat(error.fields.name ?? [])
+            .join(', ');
+          formError.textContent = errorMessage ?? 'Noe gikk galt 😅';
+          formError.style.display = 'block';
+          if (submitButton) {
+            submitButton.textContent = originalText;
+          }
+        }
+      } else {
+        form.reset();
+        if (submitButton) {
+          submitButton.textContent = 'Sendt!';
+          setTimeout(() => {
+            submitButton.textContent = originalText;
+          }, 3000);
+        }
+      }
+    }),
+  );
+</script>
