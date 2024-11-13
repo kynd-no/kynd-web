@@ -4,19 +4,24 @@ import ButtonLink from './ButtonLink.astro';
 export type Props = {
   title: string;
   preamble?: string;
+  link?: {
+    label: string;
+    href: string;
+  };
+  image?: string;
 };
 
-const { title, preamble } = Astro.props;
+const { title, preamble, link, image } = Astro.props;
 ---
 
 <div class="hero-section">
   <div>
     <h1>{title}</h1>
     {preamble && <p>{preamble}</p>}
-    <ButtonLink href="/">Les artikkel</ButtonLink>
+    {link && <ButtonLink href={link.href}>{link.label}</ButtonLink>}
   </div>
   <div class="image-container">
-    <img src="/Layer_2.svg" alt="" />
+    {image && <img src={image} alt="" />}
   </div>
 </div>
 

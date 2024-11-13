@@ -1,5 +1,5 @@
 ---
-import Input from './Input.astro';
+// import Input from './Input.astro';
 import Logo from './Logo.astro';
 ---
 
@@ -11,7 +11,7 @@ import Logo from './Logo.astro';
     <div class="list">
       <div class="list-header">Kontakt oss</div>
       <div>kynd AS</div>
-      <a href="tel:+4712345678">Tlf: 123 45 678</a>
+      <div>Org. nr.: 933 031 667</div>
       <a href="mailto:hei@kynd.no">hei@kynd.no</a>
     </div>
     <div class="list">
@@ -23,10 +23,10 @@ import Logo from './Logo.astro';
         >Instagram</a
       >
     </div>
-    <div class="list newsletter-list">
+    <!-- <div class="list newsletter-list">
       <div class="list-header">Nyhetsbrev</div>
       <Input id="newsletter" label="Nyhetsbrev" hiddenLabel name="newsletter" placeholder="Epost" />
-    </div>
+    </div> -->
   </div>
 </footer>
 
@@ -76,5 +76,10 @@ import Logo from './Logo.astro';
 
   .newsletter-list {
     justify-content: space-between;
+  }
+
+  a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
   }
 </style>
