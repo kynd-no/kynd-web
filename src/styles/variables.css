@@ -24,18 +24,6 @@
   --color-shadow: var(--color-black);
   --color-error: var(--color-red);
 
-  --fs-heading-l: 3.75rem;
-  --fs-heading-m: 2.5rem;
-  --fs-heading-s: 2rem;
-
-  --fs-body-xl: 1.875rem;
-  --fs-body-l: 1.25rem;
-  --fs-body-m: 1.125rem;
-  --fs-body-s: 1rem;
-
-  --fs-link-l: 1.25rem;
-  --fs-link-m: 1.125rem;
-
   --line-height-l: 1;
   --line-height-m: 1.4;
 
@@ -45,10 +33,6 @@
 
   --font: 'Montserrat', sans-serif;
 
-  --content-max-width: 74rem;
-  --content-padding: 2rem;
-  --content-inner-padding: 2rem;
-
   --size-header: 6.25rem;
 
   --shadow: -0.625rem 0.625rem 0 0 var(--color-shadow);
@@ -57,7 +41,33 @@
 
   --animation-duration: 0.2s;
 
+  --content-max-width: 74rem;
+  --content-padding: 2rem;
+  --content-inner-padding: 2rem;
+
+  --fs-heading-l: 2rem; /* 32px */
+  --fs-heading-m: 1.125rem; /* 18px */
+  --fs-heading-s: 1rem; /* 16px */
+  --fs-heading-xs: 1rem; /* 16px */
+
+  --fs-body-l: 1rem; /* 16px */
+  --fs-body-m: 0.875rem; /* 14px */
+
+  --fs-label-l: 0.875rem; /* 14px */
+  --fs-label-m: 0.75rem; /* 12px */
+
   @media (--md) {
     --content-inner-padding: 4rem;
+
+    --fs-heading-l: 3.75rem; /* 60px */
+    --fs-heading-m: 2.5rem; /* 40px */
+    --fs-heading-s: 1.75rem; /* 28px */
+    --fs-heading-xs: 1.25rem; /* 20px */
+
+    --fs-body-l: 1.75rem; /* 28px */
+    --fs-body-m: 1.125rem; /* 18px */
+
+    --fs-label-l: 1.25rem; /* 20px */
+    --fs-label-m: 1rem; /* 16px */
   }
 }

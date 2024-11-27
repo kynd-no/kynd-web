@@ -39,22 +39,17 @@ const { heading, subheading } = Astro.props;
   }
 
   h2 {
-    font-size: var(--fs-heading-s);
+    font-size: var(--fs-heading-m);
     background-color: var(--color-accent);
     padding: 0.5rem;
-
-    @media (--md) {
-      font-size: var(--fs-heading-m);
-    }
   }
 
   .subheading {
-    font-size: var(--fs-body-s);
+    font-size: var(--fs-body-m);
     font-weight: 400;
 
     @media (--md) {
       max-width: 50%;
-      font-size: var(--fs-body-m);
     }
   }
 </style>

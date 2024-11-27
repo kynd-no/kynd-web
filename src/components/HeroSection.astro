@@ -40,20 +40,12 @@ const { title, preamble, link, image } = Astro.props;
   }
 
   h1 {
-    font-size: var(--fs-heading-m);
-
-    @media (--md) {
-      font-size: var(--fs-heading-l);
-    }
+    font-size: var(--fs-heading-l);
   }
 
   p {
     margin-block: 2rem;
-    font-size: var(--fs-body-m);
-
-    @media (--md) {
-      font-size: var(--fs-body-l);
-    }
+    font-size: var(--fs-body-l);
   }
 
   .image-container {

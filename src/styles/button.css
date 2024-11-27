@@ -5,7 +5,7 @@
   justify-content: center;
   padding-block: calc(1.25rem - var(--border-width));
   padding-inline: calc(2.1875rem - var(--border-width));
-  font-size: var(--fs-link-m);
+  font-size: var(--fs-label-l);
   border: var(--border-width) solid transparent;
 
   &:hover {
@@ -43,9 +43,5 @@
   &.tertiary {
     color: var(--color-primary);
     background-color: var(--color-accent);
-  }
-
-  @media (--md) {
-    font-size: var(--fs-link-l);
   }
 }

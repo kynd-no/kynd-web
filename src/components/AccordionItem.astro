@@ -56,12 +56,8 @@ const { title, number } = Astro.props;
     background-color: var(--color-secondary-shade);
 
     h3 {
-      font-size: var(--fs-body-l);
+      font-size: var(--fs-heading-s);
       font-weight: var(--font-weight-semibold);
-
-      @media (--md) {
-        font-size: var(--fs-body-xl);
-      }
     }
   }
 
@@ -78,13 +74,9 @@ const { title, number } = Astro.props;
   }
 
   .accordion-item-number {
-    font-size: var(--fs-heading-m);
+    font-size: var(--fs-heading-l);
     line-height: var(--line-height-l);
     margin-inline-end: 1.5rem;
-
-    @media (--md) {
-      font-size: var(--fs-heading-l);
-    }
   }
 
   .accordion-toggle-indicator {
