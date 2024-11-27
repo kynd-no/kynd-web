@@ -56,6 +56,8 @@
   --fs-label-l: 0.875rem; /* 14px */
   --fs-label-m: 0.75rem; /* 12px */
 
+  --fs-input: 1rem; /* 16px */
+
   @media (--md) {
     --content-inner-padding: 4rem;
 
@@ -69,5 +71,7 @@
 
     --fs-label-l: 1.25rem; /* 20px */
     --fs-label-m: 1rem; /* 16px */
+
+    --fs-input: 1.125rem; /* 16px */
   }
 }
