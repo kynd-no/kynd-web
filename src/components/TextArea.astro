@@ -22,15 +22,26 @@ const { id, label, name, placeholder, required = false } = Astro.props;
     gap: 0.5rem;
   }
 
+  label {
+    font-size: var(--fs-label-m);
+  }
+
   textarea {
+    font-size: var(--fs-body-m);
     background-color: var(--color-secondary);
-    padding-inline: 1.5rem;
-    padding-block: 1rem;
-    min-block-size: 10rem;
+    padding-inline: 1rem;
+    padding-block: 0.75rem;
+    min-block-size: 8rem;
     border: 2px solid var(--color-primary);
 
     &::placeholder {
       color: var(--color-gray);
+    }
+
+    @media (--md) {
+      padding-block: 1rem;
+      padding-inline: 1.5rem;
+      min-block-size: 10rem;
     }
   }
 </style>

@@ -45,16 +45,22 @@ const {
   }
 
   input {
+    font-size: var(--fs-body-m);
     border: 2px solid var(--color-primary);
     background-color: var(--color-secondary);
     inline-size: 100%;
-    block-size: 3.25rem;
+    block-size: 2.5rem;
     line-height: 1;
-    padding-inline: 1.5rem;
+    padding-inline: 1rem;
     caret-color: var(--color-primary);
 
     &::placeholder {
       color: var(--color-gray);
+    }
+
+    @media (--md) {
+      padding-inline: 1.5rem;
+      block-size: 3.25rem;
     }
   }
 </style>
