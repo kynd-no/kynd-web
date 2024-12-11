@@ -8,12 +8,12 @@ const employees = await getCollection('employees');
 
 <LinkGrid>
   {
-    employees.map(({ data, slug }) => (
+    employees.map(({ data, id }) => (
       <ImageLink
         src={data.image}
         alt={data.name}
         name={data.name}
-        href={`/folka/${slug}`}
+        href={`/folka/${id}`}
         objectFit="cover"
       />
     ))

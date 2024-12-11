@@ -19,19 +19,19 @@ const otherProjects = projects.filter((project) => project.id !== highlightedPro
             src={highlightedProject.data.image}
             alt={highlightedProject.data.title}
             name={highlightedProject.data.title}
-            href={`/prosjekter/${highlightedProject.slug}`}
+            href={`/prosjekter/${highlightedProject.id}`}
           />
         </div>
       )
     }
     <LinkGrid>
       {
-        otherProjects.map(({ data, slug }) => (
+        otherProjects.map(({ data, id }) => (
           <ImageLink
             src={data.image}
             alt={data.title}
             name={data.title}
-            href={`/prosjekter/${slug}`}
+            href={`/prosjekter/${id}`}
           />
         ))
       }

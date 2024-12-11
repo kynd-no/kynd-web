@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import EmployeeGrid from '@/components/EmployeeGrid.astro';
 import Image from '@/components/Image.astro';
 import Layout from '@/layouts/Base.astro';
@@ -7,7 +7,7 @@ import Layout from '@/layouts/Base.astro';
 export async function getStaticPaths() {
   const employees = await getCollection('employees');
   return employees.map((employee) => ({
-    params: { slug: employee.slug },
+    params: { id: employee.id },
     props: employee,
   }));
 }
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 type Props = CollectionEntry<'employees'>;
 const employee = Astro.props;
 const { name, image } = employee.data;
-const { Content } = await employee.render();
+const { Content } = await render(employee);
 ---
 
 <Layout title={name} description={`Møt ${name}`}>

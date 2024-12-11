@@ -11,7 +11,7 @@ export const GET: APIRoute = async (context) => {
     site: context.site ?? '',
     items: posts.map((post) => ({
       ...post.data,
-      link: `/shaker/${post.slug}/`,
+      link: `/shaker/${post.id}/`,
     })),
   });
 };

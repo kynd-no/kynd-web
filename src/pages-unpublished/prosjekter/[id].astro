@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import Image from '@/components/Image.astro';
 import Layout from '@/layouts/Base.astro';
 import EmailIcon from '@/icons/EmailIcon.astro';
@@ -7,15 +7,15 @@ import EmailIcon from '@/icons/EmailIcon.astro';
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { id: project.id },
     props: project,
   }));
 }
 
 type Props = CollectionEntry<'projects'>;
-const employee = Astro.props;
-const { title, image, customer, role } = employee.data;
-const { Content } = await employee.render();
+const project = Astro.props;
+const { title, image, customer, role } = project.data;
+const { Content } = await render(project);
 ---
 
 <Layout title={title} description={`Vi har jobba med ${title}`}>

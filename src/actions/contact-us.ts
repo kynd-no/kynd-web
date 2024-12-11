@@ -1,9 +1,9 @@
 import { WebClient } from '@slack/web-api';
 import { defineAction } from 'astro:actions';
+import { SLACK_TOKEN, SLACK_CHANNEL_ID } from 'astro:env/server';
 import { z } from 'astro:schema';
 
-const web = new WebClient(import.meta.env.SLACK_TOKEN);
-const channel = import.meta.env.SLACK_CHANNEL_ID;
+const web = new WebClient(SLACK_TOKEN);
 
 export const contactUs = defineAction({
   accept: 'form',
@@ -14,7 +14,7 @@ export const contactUs = defineAction({
   }),
   handler: async (input) => {
     await web.chat.postMessage({
-      channel,
+      channel: SLACK_CHANNEL_ID,
       text: `<!channel>\n${input.name ? `Navn: ${input.name}\n` : ''}Email: ${input.email}\nMessage: ${input.message}`,
     });
   },

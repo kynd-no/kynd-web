@@ -29,12 +29,12 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.9",
-    "@astrojs/netlify": "^5.5.4",
-    "@astrojs/rss": "^4.0.9",
+    "@astrojs/mdx": "^4.0.2",
+    "@astrojs/netlify": "^6.0.0",
+    "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "@slack/web-api": "^7.7.0",
-    "astro": "^4.16.12",
+    "astro": "^5.0.5",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
