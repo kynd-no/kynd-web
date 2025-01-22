@@ -29,12 +29,12 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.0.6",
+    "@astrojs/mdx": "^4.0.7",
     "@astrojs/netlify": "^6.1.0",
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
     "@slack/web-api": "^7.8.0",
-    "astro": "^5.1.7",
+    "astro": "^5.1.8",
     "sharp": "^0.33.5"
   },
   "devDependencies": {
@@ -49,6 +49,6 @@
     "prettier": "^3.4.2",
     "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.21.0"
   }
 }
