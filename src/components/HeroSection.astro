@@ -51,6 +51,12 @@ const { title, preamble, link, image } = Astro.props;
   .image-container {
     display: none;
 
+    img {
+      display: block;
+      margin-inline: auto;
+      height: 100%;
+    }
+
     @media (--sm) {
       display: block;
     }

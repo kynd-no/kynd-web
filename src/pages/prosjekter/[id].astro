@@ -1,0 +1,23 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import HeroSection from '@/components/HeroSection.astro';
+import Layout from '@/layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: project,
+  }));
+}
+
+type Props = CollectionEntry<'projects'>;
+const project = Astro.props;
+const { title, customer, description, image } = project.data;
+const { Content } = await render(project);
+---
+
+<Layout title={title} description={`Vi har jobba med ${title} hos ${customer}`}>
+  <HeroSection title={customer} preamble={description} image={image.src} />
+  <Content />
+</Layout>

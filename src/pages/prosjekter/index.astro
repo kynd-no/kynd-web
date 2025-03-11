@@ -1,0 +1,69 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Base.astro';
+import HeroSection from '@/components/HeroSection.astro';
+
+const projects = await getCollection('projects');
+---
+
+<Layout title="Prosjekter" description="Ting vi har jobbet på">
+  <HeroSection title="Prosjekter" preamble="Ting vi har jobbet på" />
+  <div class="project-grid">
+    {
+      projects.map((project) => (
+        <div class="project-card">
+          <a href={`/prosjekter/${project.id}`}>{project.data.title}</a>
+          <img src={project.data.image.src} alt={project.data.title} />
+        </div>
+      ))
+    }
+  </div>
+</Layout>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+    column-gap: 2rem;
+    row-gap: 4rem;
+  }
+
+  .project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    grid-column: span 2;
+
+    img {
+      width: 100%;
+      margin-inline: auto;
+      height: 19rem;
+    }
+  }
+
+  .project-card:nth-child(4n - 3),
+  .project-card:nth-child(4n) {
+    grid-column: span 3;
+
+    img {
+      height: 28rem;
+    }
+  }
+
+  .project-card a {
+    font-size: var(--fs-heading-m);
+    background-color: var(--color-accent);
+    padding: 0.5rem;
+  }
+
+  .project-card a::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    cursor: pointer;
+  }
+</style>

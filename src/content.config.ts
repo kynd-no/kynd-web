@@ -25,10 +25,9 @@ const projects = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './src/content/projects' }),
   schema: ({ image }) =>
     z.object({
-      highlighted: z.boolean().optional(),
       title: z.string(),
       customer: z.string(),
-      role: z.string(),
+      description: z.string(),
       image: image(),
     }),
 });

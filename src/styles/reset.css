@@ -23,6 +23,7 @@ menu {
 }
 
 img {
+  display: block;
   max-inline-size: 100%;
   max-block-size: 100%;
 }
