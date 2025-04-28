@@ -20,4 +20,7 @@ export default defineConfig({
   server: {
     open: true,
   },
+  experimental: {
+    preserveScriptOrder: true,
+  },
 });
