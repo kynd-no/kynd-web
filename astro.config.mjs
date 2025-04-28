@@ -1,4 +1,4 @@
-import { defineConfig, envField } from 'astro/config';
+import { defineConfig, envField, fontProviders } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import netlify from '@astrojs/netlify';
 import sitemap from '@astrojs/sitemap';
@@ -22,5 +22,16 @@ export default defineConfig({
   },
   experimental: {
     preserveScriptOrder: true,
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        name: 'Montserrat',
+        cssVariable: '--font',
+        fallbacks: ['sans-serif'],
+        styles: ['normal'],
+        subsets: ['latin'],
+        weights: ['400', '500', '600'],
+      },
+    ],
   },
 });

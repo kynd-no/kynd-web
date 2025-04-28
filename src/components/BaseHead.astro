@@ -1,6 +1,6 @@
 ---
+import { Font } from 'astro:assets';
 import { SITE_DESCRIPTION, SITE_TITLE } from '@/consts';
-// import '@/styles/global.css';
 import '@/styles/main.css';
 
 type Props = {
@@ -18,7 +18,6 @@ const formattedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<!-- <meta name="format-detection" content="telephone=no" /> -->
 
 <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,13 +26,7 @@ const formattedTitle = title ? `${title} | ${SITE_TITLE}` : SITE_TITLE;
 <meta name="apple-mobile-web-app-title" content="kynd" />
 <link rel="manifest" href="/site.webmanifest" />
 
-<link
-  rel="preload"
-  href="/fonts/Montserrat-VariableFont_wght.ttf"
-  as="font"
-  type="font/ttf"
-  crossorigin
-/>
+<Font cssVariable="--font" preload />
 
 <link rel="canonical" href={canonicalURL} />
 
