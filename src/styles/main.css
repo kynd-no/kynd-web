@@ -4,13 +4,6 @@
 
 @import 'button.css';
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
-  font-style: normal;
-  font-display: swap;
-}
-
 *:focus-visible {
   outline: 0.125rem solid var(--color-focus);
   outline-offset: 0.125rem;
